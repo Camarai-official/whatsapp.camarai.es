@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* src/index.css */
+::-webkit-scrollbar {
+  display: none;
+}
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+
+@import "tailwindcss";
+
+/* Scrollbars ocultos */
+::-webkit-scrollbar {
+  display: none;
+}
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Estilos para PageWrapper */
+h1 {
+  font-family: 'Poppins', sans-serif;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+}
