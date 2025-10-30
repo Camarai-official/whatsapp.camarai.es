@@ -1,6 +1,5 @@
 // src/pages/Page01.jsx
 import React from "react"
-import { motion } from "framer-motion"
 import PageWrapper from "../components/PageWrapper.jsx"
 import img1 from "../assets/1.webp"
 import img2 from "../assets/2.webp"
@@ -51,40 +50,23 @@ const cards = [
 export default function Page01() {
   return (
     <PageWrapper id="page01">
-      {/* Título con animación */}
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-12 text-center text-3xl md:text-5xl font-bold text-white"
-      >
+      <h1 className="mb-12 text-center text-3xl md:text-5xl font-bold text-white">
         ¿Por qué elegir Login con WhatsApp?
-      </motion.h1>
+      </h1>
 
-      {/* Grid de cards */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl mx-auto">
         {cards.map(({ title, desc, img, bgColor }) => (
-          <motion.div
+          <div
             key={title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, duration: 0.5 }}
             className="relative flex flex-col gap-4 p-4 rounded-2xl bg-gray-950/20 hover:bg-gray-950/40 border border-slate-300/20 text-left overflow-visible"
           >
-            {/* Luz difusa detrás de la imagen */}
             <div className={`absolute w-14 h-14 rounded-full blur-xl ${bgColor} left-1/2 transform -translate-x-1/2 top-4`} />
-
-            {/* Imagen del icono */}
             <div className="w-full h-16 flex justify-center items-center relative z-10">
               <img src={img} alt={title} className="w-16 h-16 object-contain" loading="lazy" />
             </div>
-
             <h3 className="text-lg font-semibold text-green-400 text-center">{title}</h3>
             <p className="text-slate-400 text-sm leading-snug">{desc}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </PageWrapper>

@@ -19,7 +19,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Icon icon="mynaui:robot-solid" width={48} height={48} className="text-green-400" />
             <h1 className="text-3xl md:text-5xl font-bold">
-              Reinventamos el Login<br />solo con WhatsApp
+              Camarai <br/> reinventa el Login<br /> solo con WhatsApp
             </h1>
           </div>
 
@@ -32,10 +32,10 @@ export default function Home() {
             <motion.a
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              href="#page01"
-              className="px-6 py-3 rounded-xl bg-slate-200 text-slate-600 font-semibold text-lg hover:bg-slate-50 hover:text-green-600"
+              href="#Page01"
+              className="px-6 py-3 rounded-xl bg-green-600 text-white font-semibold text-lg hover:bg-slate-50 hover:text-green-600"
             >
-              Conocer más
+              Conocer mas
             </motion.a>
 
             <motion.a
@@ -56,7 +56,7 @@ export default function Home() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="absolute w-80 h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] bg-green-400 rounded-full opacity-60 blur-3xl"
+            className="absolute w-80 h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] bg-green-400/60 rounded-full blur-3xl"
           />
           <motion.img
             src={RobotWhatsApp}
