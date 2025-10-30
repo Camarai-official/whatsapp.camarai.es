@@ -16,7 +16,7 @@ function styleChildren(children) {
     // h1
     if (child.type === "h1") {
       return React.cloneElement(child, {
-        className: `${child.props.className ?? ""} text-slate-100 font-poppins tracking-normal leading-tight text-3xl md:text-5xl font-extrabold`
+        className: `${child.props.className ?? ""} text-slate-100 font-poppins tracking-normal leading-tight text-3xl md:text-4xl font-extrabold`
       })
     }
 
@@ -50,9 +50,9 @@ export default function PageWrapper({ children }) {
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
     <div
-      className="w-[90vw] max-w-[1200px] h-[80vh] py-6 px-22 rounded-4xl
-      bg-[#11181C]/90 backdrop-blur-xl border border-slate-300/20
-      flex flex-col items-center justify-center text-center gap-6 shadow-lg"
+      className="w-[94vw] max-w-[1200px] h-[88vh] p-24 rounded-4xl
+      bg-gray-950/90 backdrop-blur-xl border border-slate-300/20
+      flex flex-col items-center justify-center text-center gap-4 shadow-lg"
     >
         {styleChildren(children)}
       </div>

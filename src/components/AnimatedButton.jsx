@@ -13,8 +13,8 @@ export default function AnimatedButton({
 }) {
   const baseClasses = `flex items-center justify-center w-[${size}px] h-[${size}px] ${borderRadius} border cursor-pointer transition-colors p-2`
   const activeClasses = isActive
-    ? "bg-[#11181C]/60 border-slate-300/50"
-    : "bg-[#11181C]/30 border-slate-300/10 hover:bg-slate-300/10"
+    ? "bg-gray-950/90 border-slate-300/30"
+    : "bg-slate-300/10 border-slate-300/10 hover:bg-slate-300/10"
 
   const isImage = typeof icon === "string" && icon.match(/\.(png|jpg|jpeg|webp|svg)$/i)
 

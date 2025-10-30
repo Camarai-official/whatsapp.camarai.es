@@ -2,14 +2,19 @@
 import React from "react"
 import AnimatedButton from "./AnimatedButton"
 import camaraiLogo from "../assets/camarai_logo.webp"
+import FinalPage from "../pages/FinalPage"
 
 
 const ICONS = {
-  home: camaraiLogo, // Imagen personalizada
-  Page01: "mynaui:one-solid",
-  Page02: "mynaui:two-solid",
-  Page03: "mynaui:three-solid"
+  page00: camaraiLogo, // Imagen personalizada
+  page01: "mynaui:one-solid",
+  page02: "mynaui:two-solid",
+  page03: "mynaui:three-solid",
+  page04: "mynaui:four-solid",
+  page05: "mynaui:five-solid",
+  FinalPage: "mynaui:rocket-solid"
 }
+
 
 export default function SidebarNav({ sections, currentIndex, onSelect }) {
   return (
