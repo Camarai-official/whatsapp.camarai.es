@@ -1,5 +1,5 @@
 import React from "react"
-import Logo from "../assets/camarai_animated.gif" // ajusta la ruta según la ubicación de Header.jsx
+import Logo from "../assets/camarai_animated.gif"
 
 export default function Header() {
   return (

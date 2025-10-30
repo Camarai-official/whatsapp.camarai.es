@@ -1,6 +1,15 @@
 // src/components/SidebarNav.jsx
 import React from "react"
 import AnimatedButton from "./AnimatedButton"
+import camaraiLogo from "../assets/camarai_logo.webp"
+
+
+const ICONS = {
+  home: camaraiLogo, // Imagen personalizada
+  Page01: "mynaui:one-solid",
+  Page02: "mynaui:two-solid",
+  Page03: "mynaui:three-solid"
+}
 
 export default function SidebarNav({ sections, currentIndex, onSelect }) {
   return (
@@ -8,7 +17,7 @@ export default function SidebarNav({ sections, currentIndex, onSelect }) {
       {sections.map((s, i) => (
         <AnimatedButton
           key={s.id}
-          icon={s.icon}
+          icon={ICONS[s.id]}
           onClick={() => onSelect(i)}
           isActive={currentIndex === i}
           borderRadius="rounded-xl"
