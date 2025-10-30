@@ -33,7 +33,7 @@ export default function Home() {
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
               href="#Page01"
-              className="px-6 py-3 rounded-xl bg-green-600 text-white font-semibold text-lg hover:bg-slate-50 hover:text-green-600"
+              className="px-6 py-3 rounded-xl bg-green-500 text-white font-semibold text-lg hover:bg-slate-50 hover:text-green-600"
             >
               Conocer mas
             </motion.a>

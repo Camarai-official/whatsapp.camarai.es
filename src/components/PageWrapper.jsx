@@ -51,7 +51,7 @@ export default function PageWrapper({ children }) {
     >
     <div
       className="w-[94vw] max-w-[1200px] h-[88vh] p-24 rounded-4xl
-      bg-gray-950/90 backdrop-blur-xl border border-slate-300/20
+      bg-slate-950/90 backdrop-blur-xl border border-slate-300/20
       flex flex-col items-center justify-center text-center gap-4 shadow-lg"
     >
         {styleChildren(children)}

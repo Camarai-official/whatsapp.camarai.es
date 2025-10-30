@@ -49,7 +49,6 @@ export function AnimatedBackground() {
             zIndex: 5,
             width: "100%",
             height: "100%",
-            background: "radial-gradient(ellipse at 50% 75%, #a900ff 20%, transparent 75%)",
             mixBlendMode: "overlay",
             transform: "translate3d(-50%, -50%, 0)",
           }}
@@ -67,9 +66,9 @@ export function AnimatedBackground() {
             backgroundImage:
               "linear-gradient(90deg, #00f8f1 0%, #00ff00 16.5%, #ADFF2F 25%, #ff53da 33%, #ffbd1e 49.5%, #00f8f1 66%, #32CD32 75%, #00f8f160 85.5%, #ffbd1e 100%, #00f8f1 100%)",
             backgroundSize: "200% 100%",
-            filter: "blur(50px)",
+            filter: "blur(100px)",
             mixBlendMode: "plus-lighter",
-            opacity: 0.75,
+            opacity: 0.5,
             transform: "translateY(-50%)",
           }}
           animate={{ backgroundPosition: ["0% 50%", "-200% 50%"] }}
