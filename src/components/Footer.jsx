@@ -7,7 +7,7 @@ export default function Footer() {
   <div className="container mx-auto py-4 px-4 md:px-6 flex items-center justify-between">
     
     <p className="text-sm text-slate-300 leading-none">
-      &copy; {new Date().getFullYear()} WhatsApp Login Accelerator. Todos los derechos reservados.
+      &copy; {new Date().getFullYear()} Camarai WhatsApp Login Accelerator. Todos los derechos reservados.
     </p>
 
     <a
