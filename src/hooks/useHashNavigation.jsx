@@ -8,7 +8,7 @@ export default function useHashNavigation(setIndex, totalSections) {
     const handleHashChange = () => {
       try {
         const hash = window.location.hash?.replace("#", "") || ""
-        const match = hash.match(/^page(\d{2})$/)
+        const match = hash.match(/^Page(\d{2})$/)
         if (match) {
           const idx = parseInt(match[1], 10)
           if (!Number.isNaN(idx) && idx >= 0 && idx < totalSections) {

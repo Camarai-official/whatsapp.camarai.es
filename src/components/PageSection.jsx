@@ -9,10 +9,10 @@ export default function PageSection({
   cards = [],
   steps = [],
   testimonial,
-  cta, // { text, href, variant: "primary" | "secondary" | "tertiary", icon }
+  cta,
+  headerImg, // ✅ Imagen opcional en el header
   children
 }) {
-  // === Variantes de botón con tus estilos ===
   const buttonVariants = {
     primary:
       "bg-green-400 text-slate-900 hover:bg-green-200 flex items-center gap-2 transition-all",
@@ -30,25 +30,46 @@ export default function PageSection({
       id={id}
       className="w-[94vw] max-w-[1200px] h-[88vh] px-22 py-6 rounded-4xl
       bg-slate-950/90 backdrop-blur-xl border border-slate-300/30
-      flex flex-col items-center justify-between text-center gap-2"
+      flex flex-col items-center justify-between gap-4"
     >
       {/* ===== HEADER ===== */}
-      <header className="flex flex-col items-center justify-start gap-3">
-        {title && (
-          <h1 className="text-3xl md:text-4xl font-bold text-green-400">
-            {title}
-          </h1>
+      <header
+        className={`w-full flex ${
+          headerImg
+            ? "flex-col md:flex-row items-center justify-center gap-6 text-left"
+            : "flex-col items-center text-center"
+        }`}
+      >
+        {headerImg && (
+          <img
+            src={headerImg}
+            alt="Header visual"
+            className="w-20 h-20 md:w-24 md:h-24 object-contain"
+          />
         )}
-        {subtitle && (
-          <p className="text-slate-400 max-w-3xl mx-auto text-base md:text-lg">
-            {subtitle}
-          </p>
-        )}
+        <div
+          className={`flex flex-col ${
+            headerImg
+              ? "items-start text-left md:max-w-[600px]"
+              : "items-center text-center"
+          } gap-2`}
+        >
+          {title && (
+            <h1 className="text-3xl md:text-4xl font-bold text-green-400">
+              {title}
+            </h1>
+          )}
+          {subtitle && (
+            <p className="text-slate-400 text-base md:text-lg">
+              {subtitle}
+            </p>
+          )}
+        </div>
       </header>
 
       {/* ===== CONTENIDO PRINCIPAL ===== */}
       <div className="flex-1 w-full flex flex-col items-center justify-center gap-10">
-        {/* ===== GRID ===== */}
+        {/* GRID */}
         {layout === "grid" && cards.length > 0 && (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl mx-auto">
             {cards.map(({ title, desc, img, bgColor }, i) => (
@@ -71,7 +92,7 @@ export default function PageSection({
           </div>
         )}
 
-        {/* ===== STEPS ===== */}
+        {/* STEPS */}
         {layout === "steps" && steps.length > 0 && (
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto">
             {steps.map(({ title, action, ocurre, valor, img, bgColor }, i) => (
@@ -94,7 +115,7 @@ export default function PageSection({
           </div>
         )}
 
-        {/* ===== TESTIMONIAL ===== */}
+        {/* TESTIMONIAL */}
         {layout === "testimonial" && testimonial && (
           <div className="flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto text-left">
             <div className="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden bg-gray-700/20">
@@ -113,7 +134,7 @@ export default function PageSection({
           </div>
         )}
 
-        {/* ===== CTA ===== */}
+        {/* CTA */}
         {cta && (
           <div className="mt-8 flex justify-center">
             <a
@@ -121,14 +142,11 @@ export default function PageSection({
               className={`${baseButton} ${buttonVariants[cta.variant || "primary"]}`}
             >
               {cta.text}
-              {cta.icon && (
-                <Icon icon={cta.icon} width={20} height={20} />
-              )}
+              {cta.icon && <Icon icon={cta.icon} width={20} height={20} />}
             </a>
           </div>
         )}
 
-        {/* ===== CHILDREN ===== */}
         {children}
       </div>
     </section>
