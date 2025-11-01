@@ -11,7 +11,7 @@ export default function AnimatedButton({
   isActive = false,
   positionClasses = "",
 }) {
-  const baseClasses = `flex items-center justify-center w-[${size}px] h-[${size}px] ${borderRadius} border cursor-pointer transition-colors p-2`
+  const baseClasses = `flex items-center justify-center w-[${size}px] h-[${size}px] ${borderRadius} border cursor-pointer p-2`
   const activeClasses = isActive
     ? "bg-gray-950/90 border-slate-300/30"
     : "bg-slate-300/10 border-slate-300/10 hover:bg-slate-300/10"
@@ -25,13 +25,12 @@ export default function AnimatedButton({
       className={`${baseClasses} ${activeClasses} ${positionClasses}`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
     >
       {isImage ? (
         <img
           src={icon}
           alt=""
-          className="w-6 h-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
+          className="w-6 h-6 object-contain opacity-80 hover:opacity-100"
         />
       ) : (
         <Icon icon={icon} width={26} height={26} color="#cbd5e1" />

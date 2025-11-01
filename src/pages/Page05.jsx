@@ -11,8 +11,10 @@ export default function Page05() {
       subtitle="Te invitamos a probar Camarai Login en este mismo momento. Escanea el código QR en pantalla y comprueba por ti mismo la velocidad, seguridad y simplicidad de nuestro acceso."
     >
       <div className="relative flex flex-col items-center gap-8">
-        {/* Luz de fondo */}
-        <div className="absolute w-100 h-100 bg-green-400/70 rounded-full blur-3xl -z-10" />
+        {/* Brillo de fondo (decorativo) */}
+          <div className="absolute inset-0 pointer-events-none flex justify-center items-center">
+            <div className="w-[700px] h-[700px] bg-green-400/40 rounded-full blur-[160px]" />
+          </div>
 
         {/* Imagen del QR */}
         <img

@@ -13,7 +13,7 @@ export default function FinalPage() {
     >
       <div className="flex flex-col items-center justify-center gap-12 w-full mt-6 md:mt-10">
         {/* === BLOQUE DE BENEFICIOS === */}
-        <div className="bg-white/5 rounded-3xl p-6 md:p-10 w-full max-w-4xl text-left border border-white/10 hover:border-green-400/30 transition-all shadow-lg shadow-black/30">
+        <div className="bg-white/5 rounded-3xl p-6 md:p-10 w-full max-w-4xl text-left border border-white/10 hover:border-green-400/30">
           <h3 className="text-2xl md:text-3xl font-semibold text-green-400 mb-6">
             Beneficios que tu empresa obtiene al implementarlo:
           </h3>
@@ -53,7 +53,7 @@ export default function FinalPage() {
             {/* Botón primario */}
             <a
               href="#"
-              className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2 transition-all shadow-md shadow-green-400/20"
+              className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2"
             >
               Implementar en Mi Empresa
               <Icon icon="mynaui:rocket-solid" width={20} height={20} />
@@ -62,7 +62,7 @@ export default function FinalPage() {
             {/* Botón secundario */}
             <a
               href="#"
-              className="px-6 py-3 rounded-xl border border-green-400/70 text-green-300 font-semibold text-lg hover:bg-green-400/10 transition-colors flex items-center gap-2"
+              className="px-6 py-3 rounded-xl border border-green-400/70 text-green-300 font-semibold text-lg hover:bg-green-400/10 flex items-center gap-2"
             >
               Hablar con Especialista
               <Icon icon="mynaui:chat-dots-solid" width={20} height={20} />

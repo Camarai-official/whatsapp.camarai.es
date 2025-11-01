@@ -14,7 +14,7 @@ export default function Footer() {
       href="https://camarai.es"
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-2 leading-none absolute left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-90 transition-opacity"
+      className="flex items-center gap-2 leading-none absolute left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-90 "
     >
       <img
         src={Logo}
@@ -28,10 +28,10 @@ export default function Footer() {
 
 
     <div className="flex items-center gap-4 text-sm font-medium leading-none">
-      <a href="#" className="text-slate-300 transition-colors hover:text-slate-200">
+      <a href="#" className="text-slate-300 hover:text-slate-200">
         Política de Privacidad
       </a>
-      <a href="#" className="text-slate-300 transition-colors hover:text-slate-200">
+      <a href="#" className="text-slate-300 hover:text-slate-200">
         Términos de Servicio
       </a>
     </div>

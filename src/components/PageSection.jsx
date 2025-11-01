@@ -15,11 +15,11 @@ export default function PageSection({
 }) {
   const buttonVariants = {
     primary:
-      "bg-green-400 text-slate-900 hover:bg-green-200 flex items-center gap-2 transition-all",
+      "bg-green-400 text-slate-900 hover:bg-green-200 flex items-center gap-2 ",
     secondary:
-      "border border-green-400/70 text-green-300 hover:bg-green-400/10 transition-colors",
+      "border border-green-400/70 text-green-300 hover:bg-green-400/10",
     tertiary:
-      "text-green-300 hover:text-green-100 underline decoration-green-400/60 decoration-2 underline-offset-4 transition-colors"
+      "text-green-300 hover:text-green-100 underline decoration-green-400/60 decoration-2 underline-offset-4"
   }
 
   const baseButton =
@@ -80,7 +80,7 @@ export default function PageSection({
             {items.map(({ title, action, ocurre, valor, desc, img, bgColor }, i) => (
               <div
                 key={i}
-                className="relative flex flex-col gap-4 p-4 rounded-2xl bg-gray-950/20 hover:bg-gray-950/40 border border-slate-300/20 text-left transition-transform hover:scale-[1.02]"
+                className="relative flex flex-col gap-4 p-4 rounded-2xl bg-gray-950/20 hover:bg-gray-950/40 border border-slate-300/20 text-left hover:scale-[1.02]"
               >
                 {/* Luz de fondo */}
                 {bgColor && (

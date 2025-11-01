@@ -18,7 +18,7 @@ export default function Home() {
         <div className="flex-2 flex flex-col justify-center items-start text-left max-w-xl">
           <div>
             <h1 className="text-5xl md:text-6xl font-bold">
-              <span className="text-purple-400">Camarai</span> <br />
+              <span className="text-violet-400">Camarai</span> <br />
               <span className="text-white">reinventa el Login <br />solo con </span>
               <span className="text-green-400"> WhatsApp</span>
             </h1>
@@ -35,7 +35,7 @@ export default function Home() {
             {/* Botón secundario */}
             <a
               href="#page01"
-              className="px-6 py-3 rounded-xl border border-green-400/70 text-green-300 font-semibold text-lg hover:bg-green-400/10 transition-colors"
+              className="px-6 py-3 rounded-xl border border-green-400/70 text-green-300 font-semibold text-lg hover:bg-green-400/10"
             >
               Conocer más
             </a>
@@ -43,7 +43,7 @@ export default function Home() {
             {/* Botón primario */}
             <a
               href="#FinalPage"
-              className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2 transition-all"
+              className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-300 flex items-center gap-2"
             >
               Comenzar
               <Icon icon="mynaui:rocket-solid" width={20} height={20} />
@@ -60,7 +60,7 @@ export default function Home() {
           <img
             src={RobotWhatsApp}
             alt="Robot WhatsApp"
-            className="w-64 md:w-96 h-auto object-contain drop-shadow-[0_0_25px_rgba(0,255,120,0.18)]"
+            className="w-64 md:w-96 h-auto object-contain"
           />
         </div>
       </div>
