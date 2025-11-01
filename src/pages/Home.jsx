@@ -17,9 +17,12 @@ export default function Home() {
         {/* Col izquierda: texto (centrado verticalmente, alineado a la izquierda) */}
         <div className="flex-2 flex flex-col justify-center items-start text-left max-w-xl">
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold text-green-400 leading-tight">
-              Camarai <br /> reinventa el Login<br /> solo con WhatsApp
+            <h1 className="text-5xl md:text-6xl font-bold">
+              <span className="text-purple-400">Camarai</span> <br />
+              <span className="text-white">reinventa el Login <br />solo con </span>
+              <span className="text-green-400"> WhatsApp</span>
             </h1>
+
           </div>
 
           <p className="my-4 text-slate-300 text-base md:text-lg leading-relaxed max-w-xl">

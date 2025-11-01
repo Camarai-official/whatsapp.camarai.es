@@ -1,4 +1,3 @@
-// src/pages/Page02.jsx
 import React from "react"
 import PageSection from "../components/PageSection.jsx"
 import Img7 from "../assets/7.webp"
@@ -12,7 +11,7 @@ const cards = [
     ocurre: "Elevado volumen de tickets y costes de soporte.",
     valor: "Login mediante código OTP por WhatsApp. Acceso en segundos, reducción de incidencias hasta un 90 %.",
     img: Img7,
-    bgColor: "bg-green-400/50"
+    bgColor: "bg-slate-100/40"
   },
   {
     title: "Verificación sin fricción",
@@ -20,7 +19,7 @@ const cards = [
     ocurre: "Pérdida de tiempo operativo y exposición a fraude.",
     valor: "Autenticación instantánea a través del número de WhatsApp. Seguridad reforzada sin interrumpir la experiencia.",
     img: Img8,
-    bgColor: "bg-green-400/50"
+    bgColor: "bg-slate-100/40"
   },
   {
     title: "SSO con WhatsApp",
@@ -28,7 +27,7 @@ const cards = [
     ocurre: "Productividad reducida y vulnerabilidades de seguridad.",
     valor: "Single Sign-On con WhatsApp. Acceso centralizado, seguro y escalable para todo tu equipo.",
     img: Img9,
-    bgColor: "bg-green-400/50"
+    bgColor: "bg-slate-100/40"
   }
 ]
 
@@ -38,9 +37,10 @@ export default function Page02() {
       id="Page02"
       title="Transforma el acceso en una ventaja competitiva."
       subtitle="El login tradicional es un cuello de botella. Camarai Login redefine la autenticación con un acceso instantáneo, seguro y sin contraseñas, impulsado por WhatsApp."
-      steps={cards}
-      layout="steps"
+      cards={cards}
+      layout="grid"
       cta={{ text: "Ver cómo funciona", href: "#page03", variant: "primary" }}
+      imgSize={24}
     />
   )
 }
