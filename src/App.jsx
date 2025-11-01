@@ -1,5 +1,6 @@
 // App.jsx
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import Footer from "./components/Footer"
 import SidebarNav from "./components/SidebarNav"
 import ScrollButtons from "./components/ScrollButtons"
@@ -25,24 +26,63 @@ const SECTIONS = [
 
 export default function App() {
   const [index, setIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const touchStartX = useRef(null)
 
-  const scrollToIndex = (i) => setIndex(i)
-  const onPrev = () => setIndex(Math.max(0, index - 1))
-  const onNext = () => setIndex(Math.min(SECTIONS.length - 1, index + 1))
+  const scrollToIndex = (i) => {
+    if (i === index) return
+    setDirection(i > index ? 1 : -1)
+    setIndex(i)
+  }
+
+  const onPrev = () => {
+    if (index > 0) {
+      setDirection(-1)
+      setIndex(index - 1)
+    }
+  }
+
+  const onNext = () => {
+    if (index < SECTIONS.length - 1) {
+      setDirection(1)
+      setIndex(index + 1)
+    }
+  }
 
   const goToSlide = (id) => {
     const i = SECTIONS.findIndex((s) => s.id === id)
-    if (i !== -1) setIndex(i)
+    if (i !== -1) {
+      setDirection(i > index ? 1 : -1)
+      setIndex(i)
+    }
   }
 
   const CurrentPage = SECTIONS[index].Comp
 
   useHashNavigation(setIndex, SECTIONS.length)
 
-  // 🔹 Cada vez que cambie la diapositiva, hacer scroll al tope
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [index])
+
+  // ===== GESTOS TÁCTILES =====
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e) => {
+    if (!touchStartX.current) return
+    const touchEndX = e.changedTouches[0].clientX
+    const diff = touchStartX.current - touchEndX
+
+    // Umbral para evitar falsos positivos
+    if (Math.abs(diff) > 80) {
+      if (diff > 0) onNext() // swipe izquierda → siguiente
+      else onPrev() // swipe derecha → anterior
+    }
+
+    touchStartX.current = null
+  }
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-x-hidden">
@@ -59,13 +99,28 @@ export default function App() {
 
       {/* Contenido principal */}
       <main
-        className="flex-1 flex flex-col relative overflow-visible
-                   sm:items-center sm:justify-center"
+        className="flex-1 flex flex-col relative overflow-hidden sm:items-center sm:justify-center touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        <div className="w-full h-full flex justify-center px-0 sm:px-4">
-          <CurrentPage onSlide={goToSlide} />
-        </div>
+        <AnimatePresence mode="wait" initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            initial={{ x: direction === 1 ? "100%" : "-100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction === 1 ? "-100%" : "100%", opacity: 0 }}
+            transition={{
+              duration: 0.45,
+              ease: [0.45, 0, 0.55, 1],
+            }}
+            className="w-full min-h-screen flex justify-center items-center px-0 sm:px-4"
+          >
+            <CurrentPage onSlide={goToSlide} />
+          </motion.div>
+        </AnimatePresence>
 
+        {/* Botones de navegación */}
         <ScrollButtons onPrev={onPrev} onNext={onNext} />
       </main>
 
