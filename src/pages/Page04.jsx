@@ -19,10 +19,10 @@ export default function Page04({ onSlide }) {
       }}
       layout="testimonial"
     >
-      <div className="mt-8 flex justify-center">
+      <div className="flex justify-center">
         <button
           onClick={() => onSlide && onSlide("Page05")}
-          className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-300"
+          className="cursor-pointer px-4 sm:px-6 py-2 sm:py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-base sm:text-lg hover:bg-green-300"
         >
           Descubre Camarai Login
         </button>
