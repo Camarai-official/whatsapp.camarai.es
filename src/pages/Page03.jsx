@@ -31,16 +31,24 @@ const steps = [
   }
 ]
 
-export default function Page03() {
+export default function Page03({ onSlide }) {
   return (
     <PageSection
-      id="page03"
+      id="Page03"
       title="Haz del login tu mejor estrategia de atención y fidelización"
       subtitle="Cada fricción en el acceso es una barrera invisible que aleja a tus usuarios. Camarai Login elimina esa fricción con un flujo tan natural como enviar un mensaje de WhatsApp."
       cards={steps}
       layout="grid"
-      cta={{ text: "¡Pruébalo ya!", href: "#FinalPage", variant: "primary" }}
       imgSize={24}
-    />
+    >
+      <div className="mt-8 flex justify-center">
+        <button
+          onClick={() => onSlide && onSlide("Page05")}
+          className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2"
+        >
+          ¡Pruébalo ya!
+        </button>
+      </div>
+    </PageSection>
   )
 }

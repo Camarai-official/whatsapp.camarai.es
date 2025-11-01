@@ -31,7 +31,7 @@ const cards = [
   }
 ]
 
-export default function Page02() {
+export default function Page02({ onSlide }) {
   return (
     <PageSection
       id="Page02"
@@ -39,8 +39,17 @@ export default function Page02() {
       subtitle="El login tradicional es un cuello de botella. Camarai Login redefine la autenticación con un acceso instantáneo, seguro y sin contraseñas, impulsado por WhatsApp."
       cards={cards}
       layout="grid"
-      cta={{ text: "Ver cómo funciona", href: "#page03", variant: "primary" }}
       imgSize={24}
-    />
+    >
+      {/* Botón personalizado que cambia de diapositiva */}
+      <div className="mt-8 flex justify-center">
+        <button
+          onClick={() => onSlide && onSlide("Page05")}
+          className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2"
+        >
+          Ver cómo funciona
+        </button>
+      </div>
+    </PageSection>
   )
 }

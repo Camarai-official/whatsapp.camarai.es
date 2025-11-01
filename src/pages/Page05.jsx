@@ -26,7 +26,7 @@ export default function Page05() {
         {/* Botón */}
         <a
           href="#FinalPage"
-          className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2 transition-all"
+          className="px-6 py-3 rounded-xl bg-green-400 text-slate-900 font-semibold text-lg hover:bg-green-200 flex items-center gap-2"
         >
           Solicitar PIN
           <Icon icon="mynaui:password" width={20} height={20} />

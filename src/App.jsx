@@ -26,22 +26,29 @@ const SECTIONS = [
 export default function App() {
   const [index, setIndex] = useState(0)
 
+  // Funciones básicas de navegación
   const scrollToIndex = (i) => setIndex(i)
   const onPrev = () => setIndex(Math.max(0, index - 1))
   const onNext = () => setIndex(Math.min(SECTIONS.length - 1, index + 1))
 
+  // 🔹 Nueva función: navegar a una página por su ID
+  const goToSlide = (id) => {
+    const i = SECTIONS.findIndex((s) => s.id === id)
+    if (i !== -1) setIndex(i)
+  }
+
   const CurrentPage = SECTIONS[index].Comp
 
-  // Activar navegación por hash (#Page01, #FinalPage, etc.)
+  // Activa la navegación por hash (#Page01, #FinalPage, etc.)
   useHashNavigation(setIndex, SECTIONS.length)
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden">
-      {/* Fondo */}
+      {/* Fondo principal */}
       <div className="fixed inset-0 -z-20 bg-[linear-gradient(120deg,#001219_0%,#000a11_100%)] bg-no-repeat bg-cover" />
       <AnimatedBackground />
 
-      {/* Sidebar lateral */}
+      {/* Barra lateral */}
       <SidebarNav
         sections={SECTIONS}
         currentIndex={index}
@@ -51,8 +58,10 @@ export default function App() {
       {/* Contenido principal */}
       <main className="flex-1 flex items-center justify-center relative">
         <div className="absolute inset-0 flex items-center justify-center">
-          <CurrentPage />
+          {/* 👇 Pasamos la función onSlide a la página actual */}
+          <CurrentPage onSlide={goToSlide} />
         </div>
+
         <ScrollButtons onPrev={onPrev} onNext={onNext} />
       </main>
 

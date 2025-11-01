@@ -11,19 +11,19 @@ export default function PageSection({
   cta,
   headerImg,
   children,
-  imgSize = 24 // 👈 tamaño por defecto de imágenes cuadradas (Tailwind units)
+  imgSize = 24
 }) {
   const buttonVariants = {
     primary:
-      "bg-green-400 text-slate-900 hover:bg-green-200 flex items-center gap-2 ",
+      "bg-green-400 text-slate-900 hover:bg-green-200 flex items-center gap-2 cursor-pointer",
     secondary:
-      "border border-green-400/70 text-green-300 hover:bg-green-400/10",
+      "border border-green-400/70 text-green-300 hover:bg-green-400/10 cursor-pointer",
     tertiary:
-      "text-green-300 hover:text-green-100 underline decoration-green-400/60 decoration-2 underline-offset-4"
+      "text-green-300 hover:text-green-100 underline decoration-green-400/60 decoration-2 underline-offset-4 cursor-pointer"
   }
 
   const baseButton =
-    "px-6 py-3 rounded-xl font-semibold text-lg flex items-center justify-center"
+    "px-6 py-3 rounded-xl font-semibold text-lg flex items-center justify-center cursor-pointer"
 
   const items = cards.length > 0 ? cards : []
 
@@ -134,15 +134,27 @@ export default function PageSection({
         {/* ===== CTA ===== */}
         {cta && (
           <div className="mt-8 flex justify-center">
-            <a
-              href={cta.href}
-              className={`${baseButton} ${buttonVariants[cta.variant || "primary"]}`}
-            >
-              {cta.text}
-              {cta.icon && <Icon icon={cta.icon} width={20} height={20} />}
-            </a>
+            {cta.action === "slide" ? (
+              <button
+                onClick={() => cta.onSlide && cta.onSlide(cta.target)}
+                className={`${baseButton} ${buttonVariants[cta.variant || "primary"]}`}
+              >
+                {cta.text}
+                {cta.icon && <Icon icon={cta.icon} width={20} height={20} />}
+              </button>
+            ) : (
+              <a
+                href={cta.target || cta.href}
+                target={cta.newTab ? "_blank" : "_self"}
+                className={`${baseButton} ${buttonVariants[cta.variant || "primary"]}`}
+              >
+                {cta.text}
+                {cta.icon && <Icon icon={cta.icon} width={20} height={20} />}
+              </a>
+            )}
           </div>
         )}
+
 
         {children}
       </div>
