@@ -30,10 +30,10 @@ export default function Footer() {
 
         {/* ===== Enlaces derecha (solo desktop) ===== */}
         <div className="hidden lg:flex items-center gap-4 text-xs lg:text-sm font-medium leading-none">
-          <a href="https://www.camarai.es/privacy-policy" className="text-slate-300 hover:text-slate-200">
+          <a href="https://www.camarai.es/privacy-policy" target="_blank" className="text-slate-300 hover:text-slate-200">
             Política
           </a>
-          <a href="https://www.camarai.es/terms" className="text-slate-300 hover:text-slate-200">
+          <a href="https://www.camarai.es/terms" target="_blank" className="text-slate-300 hover:text-slate-200">
             Términos
           </a>
         </div>
