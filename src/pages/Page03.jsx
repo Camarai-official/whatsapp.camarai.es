@@ -31,7 +31,6 @@ export default function Page03() {
       title="Haz del login tu mejor estrategia de atención y fidelización"
       subtitle="Cada fricción en el acceso es una barrera invisible que aleja a tus usuarios. Camarai Login elimina esa fricción con un flujo tan natural como enviar un mensaje de WhatsApp."
       cards={cards}
-      imgSize={20}
       accentColor1="border-cyan-300/60"
       accentColor2="border-green-300/60"
       primaryButton={{ text: "Pruébalo ya!", icon: "mynaui:rocket-solid" }}

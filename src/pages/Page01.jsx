@@ -48,7 +48,6 @@ export default function Page01() {
       title="¿Por qué elegir Login con WhatsApp?"
       subtitle="Camarai Login está diseñado para simplificar cada etapa del acceso de usuarios."
       cards={cards}
-      imgSize={16}
     />
   )
 }

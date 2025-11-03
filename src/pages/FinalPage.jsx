@@ -37,7 +37,6 @@ export default function FinalPage() {
     <Slide
       layout={4} // 👉 Usamos el nuevo formato 4
       contentImg={Img}
-      imgSize={14}
       title="¡Ya lo experimentaste!"
       subtitle="Ahora lleva la autenticación por WhatsApp a toda tu organización."
       cards={cards}

@@ -10,7 +10,6 @@ export default function Slide({
   layout = 1,
   contentImg,
   cards = [],
-  imgSize = 20,
   accentColor1,
   accentColor2,
   testimonial = null,
@@ -89,15 +88,14 @@ case 2:
                         hover:scale-[1.02] transition-all gap-4"
             >
               {card.img && (
-                <div className="relative mb-2">
+                <div className="relative mb-2 flex items-center justify-center w-20 h-20 shrink-0">
                   {/* Luz brillante detrás */}
-                  <div className="absolute inset-0 rounded-lg bg-green-400 blur-xl opacity-20"></div>
-
-                  {/* Imagen */}
+                <div className="absolute inset-0 rounded-full bg-green-400 blur-xl opacity-20"></div>
+                {/* Imagen */}
                   <img
                     src={card.img}
                     alt={card.title}
-                    className={`relative w-${imgSize} h-${imgSize} rounded-lg object-cover`}
+                    className="relative w-16 h-16 object-cover"
                   />
                 </div>
               )}
@@ -186,13 +184,13 @@ case 4:
                 {card.img && (
                   <div className="relative mb-2">
                     {/* Luz brillante detrás */}
-                    <div className="absolute inset-0 rounded-lg bg-green-400 blur-xl opacity-20"></div>
+                    <div className="absolute inset-0 rounded-full bg-green-400 blur-xl opacity-20"></div>
 
                     {/* Imagen */}
                     <img
                       src={card.img}
                       alt={card.title}
-                      className={`relative w-${imgSize} h-${imgSize} rounded-lg object-cover`}
+                      className="relative w-16 h-16 object-cover"
                     />
                   </div>
                 )}

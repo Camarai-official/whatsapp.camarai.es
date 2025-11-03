@@ -33,7 +33,6 @@ export default function Page02() {
       title="Transforma el acceso en una ventaja competitiva."
       subtitle="El login tradicional es un cuello de botella. Camarai Login redefine la autenticación con un acceso instantáneo, seguro y sin contraseñas, impulsado por WhatsApp."
       cards={cards}
-      imgSize={20}
       accentColor1="border-yellow-400/60"
       accentColor2="border-green-300/60"
       primaryButton={{ text: "Ver cómo funciona", icon: "mynaui:rocket-solid" }}

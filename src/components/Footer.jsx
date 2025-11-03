@@ -8,7 +8,7 @@ export default function Footer() {
         
         {/* ===== Texto izquierda (solo desktop) ===== */}
         <p className="hidden sm:block text-xs sm:text-sm text-slate-300 leading-none">
-          &copy; {new Date().getFullYear()} Camarai WhatsApp Login Accelerator. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} 2025 Camarai. Todos los derechos reservados.
         </p>
 
         {/* ===== Logo centrado (visible siempre) ===== */}
