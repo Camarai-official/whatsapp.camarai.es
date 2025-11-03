@@ -1,5 +1,5 @@
 // App.jsx
-import React, { useState, useEffect, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Footer from "./components/Footer"
 import SidebarNav from "./components/SidebarNav"
@@ -26,38 +26,15 @@ const SECTIONS = [
 
 export default function App() {
   const [index, setIndex] = useState(0)
-  const [direction, setDirection] = useState(0)
+  const [offset, setOffset] = useState(0)
   const touchStartX = useRef(null)
 
-  const scrollToIndex = (i) => {
-    if (i === index) return
-    setDirection(i > index ? 1 : -1)
-    setIndex(i)
-  }
-
-  const onPrev = () => {
-    if (index > 0) {
-      setDirection(-1)
-      setIndex(index - 1)
-    }
-  }
-
-  const onNext = () => {
-    if (index < SECTIONS.length - 1) {
-      setDirection(1)
-      setIndex(index + 1)
-    }
-  }
-
+  const onPrev = () => setIndex((i) => Math.max(i - 1, 0))
+  const onNext = () => setIndex((i) => Math.min(i + 1, SECTIONS.length - 1))
   const goToSlide = (id) => {
     const i = SECTIONS.findIndex((s) => s.id === id)
-    if (i !== -1) {
-      setDirection(i > index ? 1 : -1)
-      setIndex(i)
-    }
+    if (i !== -1) setIndex(i)
   }
-
-  const CurrentPage = SECTIONS[index].Comp
 
   useHashNavigation(setIndex, SECTIONS.length)
 
@@ -65,65 +42,61 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [index])
 
-  // ===== GESTOS TÁCTILES =====
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX
-  }
-
-  const handleTouchEnd = (e) => {
-    if (!touchStartX.current) return
-    const touchEndX = e.changedTouches[0].clientX
-    const diff = touchStartX.current - touchEndX
-
-    // Umbral para evitar falsos positivos
-    if (Math.abs(diff) > 80) {
-      if (diff > 0) onNext() // swipe izquierda → siguiente
-      else onPrev() // swipe derecha → anterior
-    }
-
+  // Gestos táctiles
+  const handleTouchStart = (e) => (touchStartX.current = e.touches[0].clientX)
+  const handleTouchMove = (e) =>
+    touchStartX.current && setOffset(e.touches[0].clientX - touchStartX.current)
+  const handleTouchEnd = () => {
+    if (offset < -80) onNext()
+    else if (offset > 80) onPrev()
+    setOffset(0)
     touchStartX.current = null
   }
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-x-hidden">
-      {/* Fondo principal */}
-      <div className="fixed inset-0 -z-20 bg-[linear-gradient(120deg,#001219_0%,#000a11_100%)] bg-no-repeat bg-cover" />
+    <div className="relative flex flex-col overflow-x-hidden">
+      {/* Fondo animado */}
       <AnimatedBackground />
 
       {/* Barra lateral */}
       <SidebarNav
         sections={SECTIONS}
         currentIndex={index}
-        onSelect={scrollToIndex}
+        onSelect={setIndex}
       />
 
       {/* Contenido principal */}
       <main
-        className="flex-1 flex flex-col relative overflow-hidden sm:items-center sm:justify-center touch-pan-y"
+        className="relative w-full flex justify-center items-center py-10 overflow-hidden"
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <AnimatePresence mode="wait" initial={false} custom={direction}>
-          <motion.div
-            key={index}
-            custom={direction}
-            initial={{ x: direction === 1 ? "100%" : "-100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction === 1 ? "-100%" : "100%", opacity: 0 }}
-            transition={{
-              duration: 0.45,
-              ease: [0.45, 0, 0.55, 1],
-            }}
-            className="w-full min-h-screen flex justify-center items-center px-0 sm:px-4"
-          >
-            <CurrentPage onSlide={goToSlide} />
-          </motion.div>
+        <AnimatePresence mode="wait">
+          {(() => {
+            const CurrentComp = SECTIONS[index].Comp // ✅ Asignamos el componente dinámico
+            return (
+              <motion.div
+                key={SECTIONS[index].id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, ease: [0.45, 0, 0.55, 1] }}
+                className="w-full flex justify-center"
+              >
+                <div className="w-full max-w-[1200px]">
+                  <CurrentComp onSlide={goToSlide} /> {/* ✅ Se renderiza correctamente */}
+                </div>
+              </motion.div>
+            )
+          })()}
         </AnimatePresence>
 
-        {/* Botones de navegación */}
+
         <ScrollButtons onPrev={onPrev} onNext={onNext} />
       </main>
 
+      {/* Footer */}
       <Footer />
     </div>
   )

@@ -1,0 +1,315 @@
+// Slide.jsx
+import { Icon } from "@iconify/react";
+
+export default function Slide({
+  headerImg,
+  title,
+  subtitle,
+  primaryButton,
+  secondaryButton,
+  layout = 1,
+  contentImg,
+  cards = [],
+  imgSize = 20,
+  accentColor1,
+  accentColor2,
+  testimonial = null,
+}) {
+  // === CONTENIDO CENTRAL SEGÚN FORMATO ===
+  const renderContent = () => {
+    switch (layout) {
+      // === FORMATO 1: Texto + Imagen ===
+      case 1:
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 w-full h-full items-center justify-center">
+            <div className="flex flex-col gap-6">
+              {title && (
+                <h1 className="text-4xl sm:text-6xl font-bold text-green-400">
+                  {title}
+                </h1>
+              )}
+              {subtitle && (
+                <p className="text-pretty text-slate-300 text-lg">{subtitle}</p>
+              )}
+
+              <div className="flex flex-wrap gap-4 mt-4 sm:justify-left justify-center">
+                {secondaryButton && (
+                  <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10">
+                    {secondaryButton.text}
+                  </button>
+                )}
+                {primaryButton && (
+                  <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2">
+                    {primaryButton.text}
+                    {primaryButton.icon && (
+                      <Icon icon={primaryButton.icon} className="w-5 h-5" />
+                    )}
+                  </button>
+                )}
+              </div>
+            </div>
+            
+            
+            {/* 🖼️ Imagen con luz verde suave detrás */}
+                  {contentImg && (
+                    <div className="flex justify-center items-center">
+                      <div className="relative">
+                        {/* Luz verde suave detrás */}
+                        <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl"></div>
+
+                        <img
+                          src={contentImg}
+                          alt="Content visual"
+                          className="relative w-full max-w-sm object-contain"
+                        />
+                      </div>
+                    </div>
+                  )}
+          </div>
+        );
+
+      // === FORMATO 2: GRID DE CARDS ===
+case 2:
+  const gridCols =
+    cards.length === 4
+      ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4" // 4 en una fila
+      : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"; // 3 y 3 o similar
+
+  return (
+    <div className="flex flex-col items-center justify-center w-full h-full gap-10">
+      {cards?.length > 0 && (
+        <div
+          className={`grid ${gridCols} gap-6 w-full max-w-6xl mx-auto place-items-center`}
+        >
+          {cards.map((card, i) => (
+            <div
+              key={i}
+              className="rounded-2xl p-4 flex flex-col items-center justify-between 
+                        bg-gray-950/30 border border-slate-300/20 
+                        hover:scale-[1.02] transition-all gap-4"
+            >
+              {card.img && (
+                <div className="relative mb-2">
+                  {/* Luz brillante detrás */}
+                  <div className="absolute inset-0 rounded-lg bg-green-400 blur-xl opacity-20"></div>
+
+                  {/* Imagen */}
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className={`relative w-${imgSize} h-${imgSize} rounded-lg object-cover`}
+                  />
+                </div>
+              )}
+
+              <h3
+                className="text-md font-semibold text-green-300 mb-2 text-center"
+                dangerouslySetInnerHTML={{ __html: card.title }}
+              />
+
+              {/* Desc principal */}
+              <div
+                className={`
+                  text-slate-400 text-sm leading-relaxed text-left w-full max-w-xs
+                  border-l-2 pl-3
+                  ${accentColor1}
+                `}
+                dangerouslySetInnerHTML={{ __html: card.desc }}
+              />
+
+              {/* Desc secundaria */}
+              {card.desc2 && (
+                <div
+                  className={`
+                    text-slate-200 text-sm leading-relaxed text-left w-full max-w-xs
+                    border-l-2 pl-3 opacity-90
+                    ${accentColor2}
+                  `}
+                  dangerouslySetInnerHTML={{ __html: card.desc2 }}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+
+
+// === FORMATO 3: TESTIMONIO ===
+case 3:
+  return (
+    <div className="flex sm:flex-row flex-col gap-10 w-full h-full items-center sm:p-12">
+      {/* Columna izquierda: perfil */}
+      <div className="flex flex-col flex-1 items-center text-center md:text-left gap-2">
+        {testimonial?.img && (
+          <img
+            src={testimonial.img}
+            alt={testimonial.name}
+            className="w-48 h-48 rounded-full object-cover border-2 border-green-300/40 shadow-md"
+          />
+        )}
+        {testimonial?.name && (
+          <h3 className="text-2xl font-semibold text-white">{testimonial.name}</h3>
+        )}
+        {testimonial?.role && (
+          <p className="text-green-400 text-sm">{testimonial.role}</p>
+        )}
+      </div>
+
+      {/* Columna derecha: cita */}
+      <div className="flex flex-col flex-3 items-start text-left gap-6">
+        {testimonial?.quote && (
+          <blockquote className="text-slate-100 leading-8 text-lg border-l-2 border-green-300/40 pl-4 italic">
+            “{testimonial.quote}”
+          </blockquote>
+        )}
+      </div>
+    </div>
+  );
+
+// === FORMATO 4: GRID DE CARDS + IMAGEN LATERAL ===
+case 4:
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 w-full items-center justify-center">
+      {/* 🧩 Columna Izquierda: Cards */}
+      <div className="flex flex-col items-center justify-center gap-8">
+        {cards?.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+            {cards.map((card, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-4 flex flex-col items-center justify-between 
+                            bg-gray-950/30 border border-slate-300/20 
+                            hover:scale-[1.02] transition-all gap-4"
+              >
+                {card.img && (
+                  <div className="relative mb-2">
+                    {/* Luz brillante detrás */}
+                    <div className="absolute inset-0 rounded-lg bg-green-400 blur-xl opacity-20"></div>
+
+                    {/* Imagen */}
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className={`relative w-${imgSize} h-${imgSize} rounded-lg object-cover`}
+                    />
+                  </div>
+                )}
+
+                <h3
+                  className="text-md font-semibold text-green-300 text-center"
+                  dangerouslySetInnerHTML={{ __html: card.title }}
+                />
+
+                <div
+                  className={`text-slate-400 text-sm leading-relaxed text-left w-full border-l-2 pl-3 ${accentColor1}`}
+                  dangerouslySetInnerHTML={{ __html: card.desc }}
+                />
+
+                {card.desc2 && (
+                  <div
+                    className={`text-slate-200 text-sm leading-relaxed text-left w-full border-l-2 pl-3 opacity-90 ${accentColor2}`}
+                    dangerouslySetInnerHTML={{ __html: card.desc2 }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* 🖼️ Columna Derecha: Imagen lateral */}
+      {contentImg && (
+        <div className="flex justify-center items-center">
+          <div className="relative">
+            {/* Luz verde suave detrás */}
+            <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl "></div>
+
+            <img
+              src={contentImg}
+              alt="Visual"
+              className="relative w-full max-w-sm object-contain"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+
+
+      }
+  };
+
+  // === RENDER PRINCIPAL ===
+  return (
+    <section
+      className="
+      relative
+      w-[100vw] sm:w-[94vw] max-w-[1200px] md:h-[87vh]
+      px-4 sm:px-22 py-12 sm:py-8
+      rounded-4xl border border-slate-300/30 bg-slate-950/90 backdrop-blur-xl
+      flex flex-col items-center justify-between gap-6"
+    >
+      {/* HEADER (solo si layout !== 1) */}
+{layout !== 1 && (
+  <header
+    className={`w-full flex items-center justify-center gap-4 ${
+      headerImg ? "text-left" : "text-center"
+    }`}
+  >
+    {headerImg && (
+      <div className="relative flex items-center justify-center">
+        {/* Luz detrás */}
+        <div className="absolute inset-0 rounded-full bg-green-400 blur-2xl opacity-25"></div>
+
+        {/* Imagen */}
+        <img
+          src={headerImg}
+          alt="Header visual"
+          className="relative w-16 sm:w-20 h-auto drop-shadow-[0_0_10px_rgba(34,197,94,0.4)]"
+        />
+      </div>
+    )}
+
+    <div className="flex flex-col gap-2">
+      {title && (
+        <h1 className="text-2xl md:text-4xl font-bold text-green-400 text-balance">
+          {title}
+        </h1>
+      )}
+      {subtitle && (
+        <p className="text-pretty text-slate-300 text-sm md:text-lg">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  </header>
+)}
+
+
+      {/* CONTENIDO CENTRAL */}
+      <div className="w-full h-full rounded-xl">{renderContent()}</div>
+
+      {/* FOOTER (solo si layout !== 1) */}
+      {layout !== 1 && (
+        <footer className="w-full flex flex-col sm:flex-row items-center justify-center gap-4">
+          {secondaryButton && (
+            <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10">
+              {secondaryButton.text}
+            </button>
+          )}
+          {primaryButton && (
+            <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2">
+              {primaryButton.text}
+              {primaryButton.icon && (
+                <Icon icon={primaryButton.icon} className="w-5 h-5" />
+              )}
+            </button>
+          )}
+        </footer>
+      )}
+    </section>
+  );
+}

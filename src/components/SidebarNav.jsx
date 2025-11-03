@@ -22,7 +22,7 @@ export default function SidebarNav({ sections, currentIndex, onSelect }) {
       {/* Botón hamburguesa para móviles */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed left-2 top-2 sm:left-4 sm:top-4 z-50 
+        className="fixed left-3 top-2 sm:left-4 sm:top-4 z-50 
         w-10 h-10 sm:hidden flex items-center justify-center
         bg-slate-950/90 border border-slate-300/30 rounded-xl
         hover:bg-slate-900/90"

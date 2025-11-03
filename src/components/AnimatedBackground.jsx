@@ -4,81 +4,36 @@ import { motion } from "framer-motion"
 
 export function AnimatedBackground() {
   return (
-    <motion.div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        overflow: "hidden",
-        zIndex: -3,
-        backgroundColor: "hsl(var(--background))", // usa variable de Tailwind
-      }}
-    >
-      <div
+    <div className="fixed inset-0 -z-20 bg-slate-950 overflow-hidden">
+      {/* Luces animadas */}
+      <motion.div
+        className="absolute inset-0"
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          overflow: "hidden",
+          backgroundImage:
+            "linear-gradient(90deg, #00f8f1, #00ff00, #ADFF2F, #ff53da, #ffbd1e, #00f8f1)",
+          backgroundSize: "300% 100%",
+          filter: "blur(120px)",
+          opacity: 0.45,
+          mixBlendMode: "plus-lighter",
         }}
-      >
-        {/* Viñeta central */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            zIndex: 2,
-            width: "150%",
-            height: "140%",
-            background: "radial-gradient(ellipse at 50% 55%, transparent 20%, #050C0F 90%)",
-            transform: "translate3d(-50%, -50%, 0)",
-          }}
-        />
+        animate={{
+          backgroundPosition: ["0% 50%", "-200% 50%"],
+        }}
+        transition={{
+          duration: 12,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />
 
-        {/* Overlay radial sutil */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            zIndex: 5,
-            width: "100%",
-            height: "100%",
-            mixBlendMode: "overlay",
-            transform: "translate3d(-50%, -50%, 0)",
-          }}
-        />
-
-        {/* Aura animada */}
-        <motion.div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "0",
-            zIndex: 3,
-            width: "100%",
-            height: "30%",
-            backgroundImage:
-              "linear-gradient(90deg, #00f8f1 0%, #00ff00 16.5%, #ADFF2F 25%, #ff53da 33%, #ffbd1e 49.5%, #00f8f1 66%, #32CD32 75%, #00f8f160 85.5%, #ffbd1e 100%, #00f8f1 100%)",
-            backgroundSize: "200% 100%",
-            filter: "blur(100px)",
-            mixBlendMode: "plus-lighter",
-            opacity: 0.5,
-            transform: "translateY(-50%)",
-          }}
-          animate={{ backgroundPosition: ["0% 50%", "-200% 50%"] }}
-          transition={{
-            duration: 10,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-        />
-      </div>
-    </motion.div>
+      {/* Oscurecer bordes superior e inferior */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, transparent 50%, rgba(0,0,0,0.8) 80%, rgba(0, 0, 0, 1) 100%)",
+        }}
+      />
+    </div>
   )
 }
