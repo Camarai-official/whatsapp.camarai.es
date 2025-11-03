@@ -108,11 +108,7 @@ export default function Slide({
 
       /** === LAYOUT 2: GRID DE CARDS === */
       case 2:
-        const gridCols =
-          cards.length === 4
-            ? "grid-cols-1 lg:grid-cols-2 lg:grid-cols-4"
-            : "grid-cols-1 lg:grid-cols-2 lg:grid-cols-3";
-
+        const gridCols = "grid-cols-1 lg:grid-cols-3";
         return (
           <div className="flex flex-col items-center justify-center w-full h-full gap-10">
             {cards?.length > 0 && (

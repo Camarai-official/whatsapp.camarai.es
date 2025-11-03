@@ -13,7 +13,7 @@ const cards = [
   {
     img: Img1,
     title: "Velocidad inmediata",
-    desc: "Acceso en <strong>&lt;5s</strong>. Sin esperas ni resets de contraseña.",
+    desc: "Acceso en <strong>5 segundos</strong>. Sin esperas ni resets de contraseña.",
   },
   {
     img: Img9,
@@ -40,8 +40,7 @@ export default function FinalPage({ onSlide }) {
       title="¡Ya lo experimentaste!"
       subtitle="Ahora lleva la autenticación por WhatsApp a toda tu organización."
       cards={cards}
-      accentColor1="border-green-400"
-      accentColor2="border-violet-400"
+      accentColor1="border-slate-400"
       primaryButton={{
         text: "Comenzar ya",
         icon: "mynaui:rocket-solid",

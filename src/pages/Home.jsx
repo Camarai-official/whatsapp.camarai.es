@@ -7,7 +7,7 @@ export default function Home({ onSlide }) {
       layout={1}
       title={
         <>
-          <span className="text-violet-400">Camarai</span> <br />
+          <span className="bg-gradient-to-r from-[#78A3ED] via-[#9B6EFD] to-[#F0768C] bg-clip-text text-transparent"> Camarai </span> <br />
           <span className="text-white">
             reinventa el Login <br />
             solo con{" "}
