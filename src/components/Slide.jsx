@@ -7,7 +7,7 @@ export default function Slide({
   subtitle,
   primaryButton,
   secondaryButton,
-  layout = 1,
+  layout,
   contentImg,
   cards = [],
   accentColor1,
@@ -188,11 +188,11 @@ export default function Slide({
         >
           {headerImg && (
             <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full bg-green-400 blur-2xl opacity-25 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-full bg-green-400 blur-2xl opacity-40 pointer-events-none"></div>
               <img
                 src={headerImg}
                 alt="Header visual"
-                className="relative w-24 h-auto drop-shadow-[0_0_10px_rgba(34,197,94,0.4)]"
+                className="relative w-24 h-auto"
               />
             </div>
           )}
