@@ -33,12 +33,12 @@ export default function Slide({
 
               <div className="flex flex-wrap gap-4 mt-4 sm:justify-start justify-center">
                 {secondaryButton && (
-                  <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10">
+                  <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10 cursor-pointer">
                     {secondaryButton.text}
                   </button>
                 )}
                 {primaryButton && (
-                  <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2">
+                  <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2 cursor-pointer">
                     {primaryButton.text}
                     {primaryButton.icon && (
                       <Icon icon={primaryButton.icon} className="w-5 h-5" />
@@ -49,12 +49,12 @@ export default function Slide({
             </div>
             
             
-            {/* 🖼️ Imagen con luz verde suave detrás */}
+            {/* 🖼️ Imagen con glow */}
                   {contentImg && (
                     <div className="flex justify-center items-center">
                       <div className="relative">
-                        {/* Luz verde suave detrás */}
-                        <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl"></div>
+                        {/* Glow */}
+                        <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl pointer-events-none"></div>
 
                         <img
                           src={contentImg}
@@ -89,8 +89,8 @@ case 2:
             >
               {card.img && (
                 <div className="relative mb-2 flex items-center justify-center w-20 h-20 shrink-0">
-                  {/* Luz brillante detrás */}
-                <div className="absolute inset-0 rounded-full bg-green-400 blur-xl opacity-20"></div>
+                {/* Glow */}
+                <div className="absolute inset-0 rounded-full bg-green-400 blur-xl opacity-20 pointer-events-none"></div>
                 {/* Imagen */}
                   <img
                     src={card.img}
@@ -183,8 +183,8 @@ case 4:
               >
                 {card.img && (
                   <div className="relative mb-2">
-                    {/* Luz brillante detrás */}
-                    <div className="absolute inset-0 rounded-full bg-green-400 blur-xl opacity-20"></div>
+                    {/* Glow */}
+                    <div className="absolute inset-0 rounded-full bg-green-400 blur-xl opacity-20 pointer-events-none"></div>
 
                     {/* Imagen */}
                     <img
@@ -221,8 +221,8 @@ case 4:
       {contentImg && (
         <div className="flex justify-center items-center">
           <div className="relative">
-            {/* Luz verde suave detrás */}
-            <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl "></div>
+            {/* Glow */}
+            <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl pointer-events-none"></div>
 
             <img
               src={contentImg}
@@ -259,8 +259,8 @@ case 4:
   >
     {headerImg && (
       <div className="relative flex items-center justify-center">
-        {/* Luz detrás */}
-        <div className="absolute inset-0 rounded-full bg-green-400 blur-2xl opacity-25"></div>
+        {/* Glow */}
+        <div className="absolute inset-0 rounded-full bg-green-400 blur-2xl opacity-25 pointer-events-none"></div>
 
         {/* Imagen */}
         <img
@@ -294,12 +294,12 @@ case 4:
       {layout !== 1 && (
         <footer className="w-full flex flex-col sm:flex-row items-center justify-center gap-4">
           {secondaryButton && (
-            <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10">
+            <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10 cursor-pointer">
               {secondaryButton.text}
             </button>
           )}
           {primaryButton && (
-            <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2">
+            <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2 cursor-pointer">
               {primaryButton.text}
               {primaryButton.icon && (
                 <Icon icon={primaryButton.icon} className="w-5 h-5" />
