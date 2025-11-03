@@ -3,10 +3,6 @@ import { Icon } from "@iconify/react"
 import { motion } from "framer-motion"
 import camaraiLogo from "../assets/camarai_logo.webp"
 
-/**
- * ButtonsUI
- * Menú lateral con animaciones, navegación y botones prev/next integrados.
- */
 const ICONS = {
   Page00: camaraiLogo,
   Page01: "mynaui:one-solid",
@@ -27,9 +23,9 @@ export default function ButtonsUI({
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(!open)
 
-  /**
-   * 🔹 Mini componente interno: Botón animado
-   */
+  const isFirst = currentIndex === 0
+  const isLast = currentIndex === sections.length - 1
+
   const Btn = ({
     icon,
     onClick,
@@ -119,35 +115,43 @@ export default function ButtonsUI({
       {(onPrev || onNext) && (
         <>
           {/* 💻 Desktop: laterales centrados */}
-          <Btn
-            icon="mdi:chevron-left"
-            onClick={onPrev}
-            size={40}
-            rounded="full"
-            className="hidden lg:flex absolute left-36 top-1/2 -translate-y-1/2 z-40"
-          />
-          <Btn
-            icon="mdi:chevron-right"
-            onClick={onNext}
-            size={40}
-            rounded="full"
-            className="hidden lg:flex absolute right-36 top-1/2 -translate-y-1/2 z-40"
-          />
-
-          {/* 📱 Mobile: arriba a la derecha */}
-          <div className="flex lg:hidden fixed top-2 right-4 z-50 gap-6">
+          {!isFirst && (
             <Btn
               icon="mdi:chevron-left"
               onClick={onPrev}
               size={40}
-              className="bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
+              rounded="full"
+              className="hidden lg:flex absolute left-36 top-1/2 -translate-y-1/2 z-40"
             />
+          )}
+          {!isLast && (
             <Btn
               icon="mdi:chevron-right"
               onClick={onNext}
               size={40}
-              className="bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
+              rounded="full"
+              className="hidden lg:flex absolute right-36 top-1/2 -translate-y-1/2 z-40"
             />
+          )}
+
+          {/* 📱 Mobile: arriba a la derecha */}
+          <div className="flex lg:hidden fixed top-2 right-4 z-50 gap-6">
+            {!isFirst && (
+              <Btn
+                icon="mdi:chevron-left"
+                onClick={onPrev}
+                size={40}
+                className="bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
+              />
+            )}
+            {!isLast && (
+              <Btn
+                icon="mdi:chevron-right"
+                onClick={onNext}
+                size={40}
+                className="bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
+              />
+            )}
           </div>
         </>
       )}
