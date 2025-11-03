@@ -18,7 +18,7 @@ const cards = [
   },
   {
     title: '<span class="text-slate-400 pr-1 font-bold">3</span> Conexión',
-    desc: "Acceso instantáneo a la plataforma. <br/> La información del usuario se sincroniza automáticamente con la base de datos o CRM.",
+    desc: "Acceso instantáneo a la plataforma. <br/> La información del usuario se sincroniza con la base de datos o CRM.",
     desc2: "Autenticación que permite entrar, conectar y retener.",
     img: img12,
   },

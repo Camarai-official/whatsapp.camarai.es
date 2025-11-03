@@ -28,7 +28,7 @@ export default function Slide({
                 </h1>
               )}
               {subtitle && (
-                <p className="text-pretty text-slate-300 text-lg">{subtitle}</p>
+                <h6 className="text-pretty text-slate-300 text-xl">{subtitle}</h6>
               )}
 
               <div className="flex flex-wrap gap-4 mt-4 sm:justify-left justify-center">
@@ -101,7 +101,7 @@ case 2:
               )}
 
               <h3
-                className="text-md font-semibold text-green-300 mb-2 text-center"
+                className="text-lg font-semibold text-green-300 mb-2 text-center"
                 dangerouslySetInnerHTML={{ __html: card.title }}
               />
 
@@ -158,7 +158,7 @@ case 3:
       {/* Columna derecha: cita */}
       <div className="flex flex-col flex-3 items-start text-left gap-6">
         {testimonial?.quote && (
-          <blockquote className="text-slate-100 leading-8 text-lg border-l-2 border-green-300/40 pl-4 italic">
+          <blockquote className="text-slate-100 leading-8 text-lg border-l-2 border-green-300/40 pl-2 sm:pl-8 italic">
             “{testimonial.quote}”
           </blockquote>
         )}
@@ -179,7 +179,7 @@ case 4:
                 key={i}
                 className="rounded-2xl p-4 flex flex-col items-center justify-between 
                             bg-gray-950/30 border border-slate-300/20 
-                            hover:scale-[1.02] transition-all gap-4"
+                            hover:scale-[1.02] transition-all gap-2"
               >
                 {card.img && (
                   <div className="relative mb-2">
@@ -196,7 +196,7 @@ case 4:
                 )}
 
                 <h3
-                  className="text-md font-semibold text-green-300 text-center"
+                  className="text-lg font-semibold text-green-300 text-center"
                   dangerouslySetInnerHTML={{ __html: card.title }}
                 />
 
@@ -278,9 +278,9 @@ case 4:
         </h1>
       )}
       {subtitle && (
-        <p className="text-pretty text-slate-300 text-sm md:text-lg">
+        <h6 className="text-pretty text-slate-300 text-sm md:text-xl">
           {subtitle}
-        </p>
+        </h6>
       )}
     </div>
   </header>
