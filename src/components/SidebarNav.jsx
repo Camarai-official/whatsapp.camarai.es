@@ -39,7 +39,7 @@ export default function SidebarNav({ sections, currentIndex, onSelect }) {
       {/* Navegación */}
       <nav 
         className={`
-          fixed left-2 sm:left-4 top-[15%] flex flex-col gap-3 sm:gap-5 z-40
+          fixed left-2 sm:left-4 top-[10%] flex flex-col gap-3 sm:gap-5 z-40
           transition-all duration-300 ease-in-out
           ${isOpen 
             ? "translate-x-0 opacity-100" 
