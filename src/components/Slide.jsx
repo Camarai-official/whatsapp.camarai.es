@@ -31,7 +31,7 @@ export default function Slide({
                 <h6 className="text-pretty text-slate-300 text-xl">{subtitle}</h6>
               )}
 
-              <div className="flex flex-wrap gap-4 mt-4 sm:justify-left justify-center">
+              <div className="flex flex-wrap gap-4 mt-4 sm:justify-start justify-center">
                 {secondaryButton && (
                   <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10">
                     {secondaryButton.text}
