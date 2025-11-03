@@ -54,7 +54,7 @@ export default function ButtonsUI({
           <img
             src={icon}
             alt=""
-            className="w-4 h-4 lg:w-6 lg:h-6 object-contain opacity-80 hover:opacity-100"
+            className="w-4 h-4 xl:w-6 xl:h-6 object-contain opacity-80 hover:opacity-100"
           />
         ) : (
           <Icon
@@ -75,19 +75,19 @@ export default function ButtonsUI({
         icon={open ? "mdi:close" : "mdi:menu"}
         onClick={toggle}
         size={40}
-        className="fixed left-3 top-2 lg:left-4 lg:top-4 z-50 lg:hidden
+        className="fixed left-3 top-2 xl:left-4 xl:top-4 z-50 xl:hidden
                    bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
       />
 
       {/* 🧭 Navegación lateral */}
       <nav
-        className={`fixed left-2 lg:left-4 top-[10%] flex flex-col gap-3 lg:gap-5 z-40
+        className={`fixed left-2 xl:left-4 top-[10%] flex flex-col gap-3 xl:gap-5 z-40
           transition-all duration-300 ease-in-out
           ${open
             ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0 lg:translate-x-0 lg:opacity-100"}
-          bg-slate-950/80 lg:bg-transparent
-          p-3 lg:p-0 rounded-xl lg:rounded-none border border-slate-300/20 lg:border-0`}
+            : "-translate-x-full opacity-0 xl:translate-x-0 xl:opacity-100"}
+          bg-slate-950/80 xl:bg-transparent
+          p-3 xl:p-0 rounded-xl xl:rounded-none border border-slate-300/20 xl:border-0`}
       >
         {sections.map((s, i) => (
           <Btn
@@ -106,7 +106,7 @@ export default function ButtonsUI({
       {/* 🌫 Overlay móvil */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 xl:hidden"
           onClick={() => setOpen(false)}
         />
       )}
@@ -121,7 +121,7 @@ export default function ButtonsUI({
               onClick={onPrev}
               size={40}
               rounded="full"
-              className="hidden lg:flex absolute left-36 top-1/2 -translate-y-1/2 z-40"
+              className="hidden xl:flex absolute left-36 top-1/2 -translate-y-1/2 z-40"
             />
           )}
           {!isLast && (
@@ -130,12 +130,12 @@ export default function ButtonsUI({
               onClick={onNext}
               size={40}
               rounded="full"
-              className="hidden lg:flex absolute right-36 top-1/2 -translate-y-1/2 z-40"
+              className="hidden xl:flex absolute right-36 top-1/2 -translate-y-1/2 z-40"
             />
           )}
 
           {/* 📱 Mobile: arriba a la derecha */}
-          <div className="flex lg:hidden fixed top-2 right-4 z-50 gap-6">
+          <div className="flex xl:hidden fixed top-2 right-4 z-50 gap-6">
             {!isFirst && (
               <Btn
                 icon="mdi:chevron-left"
