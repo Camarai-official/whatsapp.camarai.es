@@ -179,7 +179,7 @@ export default function Slide({
         flex flex-col items-center justify-between gap-6
       "
     >
-      {/* HEADER (solo si layout !== 1) */}
+      {/* HEADER (si layout !== 1) */}
       {layout !== 1 && (
         <header
           className={`w-full flex flex-col xl:flex-row items-center justify-center gap-4 ${
@@ -197,7 +197,7 @@ export default function Slide({
             </div>
           )}
 
-          <div className="flex flex-col gap-2 text-center xl:text-left">
+          <div className={`flex flex-col gap-2 ${headerImg ? "text-center xl:text-left" : "text-center"}`}>
             {title && <h1 className="text-2xl xl:text-4xl font-bold text-green-400 text-balance">{title}</h1>}
             {subtitle && <h6 className="text-pretty text-slate-300 text-sm xl:text-xl">{subtitle}</h6>}
           </div>
