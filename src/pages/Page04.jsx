@@ -2,14 +2,15 @@ import Slide from "../components/Slide.jsx"
 import Img14 from "../assets/14.webp"
 import LauraProfile from "../assets/LauraProfile.webp"
 
-export default function Page04() {
+export default function Page04({ onSlide }) {
   return (
     <Slide
       layout={3}
       title="“Ahora sé quién hizo qué”"
       subtitle="Laura comparte cómo Camarai Login transformó la seguridad y trazabilidad en su negocio."
       headerImg={Img14}
-      primaryButton={{ text: "Prueba Camarai Login", icon: "mynaui:rocket-solid" }}
+      primaryButton={{ text: "Prueba Camarai Login", icon: "mynaui:rocket-solid", goTo: "Page05" }}
+      onSlide={onSlide}
       testimonial={{
         img: LauraProfile,
         name: "Laura Vílchez",

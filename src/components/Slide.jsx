@@ -13,18 +13,25 @@ export default function Slide({
   accentColor1,
   accentColor2,
   testimonial = null,
+  onSlide,
 }) {
 
   /** 🧩 Botones reutilizables (para footer y layout 1) */
   const renderButtons = () => (
     <div className="flex flex-wrap gap-4 mt-4 lg:justify-start justify-center">
       {secondaryButton && (
-        <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10 cursor-pointer">
+        <button
+          className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10 cursor-pointer"
+          onClick={() => onSlide?.(secondaryButton.goTo)}
+        >
           {secondaryButton.text}
         </button>
       )}
       {primaryButton && (
-        <button className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2 cursor-pointer">
+        <button
+          className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2 cursor-pointer"
+          onClick={() => onSlide?.(primaryButton.goTo)}
+        >
           {primaryButton.text}
           {primaryButton.icon && (
             <Icon icon={primaryButton.icon} className="w-5 h-5" />
@@ -194,7 +201,7 @@ export default function Slide({
             </div>
           )}
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-center lg:text-left">
             {title && <h1 className="text-2xl lg:text-4xl font-bold text-green-400 text-balance">{title}</h1>}
             {subtitle && <h6 className="text-pretty text-slate-300 text-sm lg:text-xl">{subtitle}</h6>}
           </div>

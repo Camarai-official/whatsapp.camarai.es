@@ -1,9 +1,7 @@
-// App.jsx
 import { useState, useRef, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Footer from "./components/Footer"
-import SidebarNav from "./components/SidebarNav"
-import ScrollButtons from "./components/ScrollButtons"
+import ButtonsUI from "./components/ButtonsUI"
 import Home from "./pages/Home"
 import Page01 from "./pages/Page01"
 import Page02 from "./pages/Page02"
@@ -36,16 +34,19 @@ export default function App() {
     if (i !== -1) setIndex(i)
   }
 
+  // Hook de navegación por hash (#)
   useHashNavigation(setIndex, SECTIONS.length)
 
+  // Scroll al tope al cambiar de sección
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [index])
 
-  // Gestos táctiles
+  // Gestos táctiles (swipe)
   const handleTouchStart = (e) => (touchStartX.current = e.touches[0].clientX)
   const handleTouchMove = (e) =>
-    touchStartX.current && setOffset(e.touches[0].clientX - touchStartX.current)
+    touchStartX.current &&
+    setOffset(e.touches[0].clientX - touchStartX.current)
   const handleTouchEnd = () => {
     if (offset < -80) onNext()
     else if (offset > 80) onPrev()
@@ -55,26 +56,28 @@ export default function App() {
 
   return (
     <div className="relative flex flex-col overflow-x-hidden">
-      {/* Fondo animado */}
+      {/* 🌌 Fondo animado */}
       <AnimatedBackground />
 
-      {/* Barra lateral */}
-      <SidebarNav
+      {/* 🧭 Navegación lateral + botones de scroll integrados */}
+      <ButtonsUI
         sections={SECTIONS}
         currentIndex={index}
         onSelect={setIndex}
+        onPrev={onPrev}
+        onNext={onNext}
       />
 
-      {/* Contenido principal */}
+      {/* 📄 Contenido principal */}
       <main
-        className="relative w-full flex justify-center items-center py-10 overflow-hidden"
+        className="relative w-full flex justify-center items-center py-14 overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <AnimatePresence mode="wait">
           {(() => {
-            const CurrentComp = SECTIONS[index].Comp // ✅ Asignamos el componente dinámico
+            const CurrentComp = SECTIONS[index].Comp
             return (
               <motion.div
                 key={SECTIONS[index].id}
@@ -85,18 +88,15 @@ export default function App() {
                 className="w-full flex justify-center"
               >
                 <div className="w-full max-w-[1200px]">
-                  <CurrentComp onSlide={goToSlide} /> {/* ✅ Se renderiza correctamente */}
+                  <CurrentComp onSlide={goToSlide} />
                 </div>
               </motion.div>
             )
           })()}
         </AnimatePresence>
-
-
-        <ScrollButtons onPrev={onPrev} onNext={onNext} />
       </main>
 
-      {/* Footer */}
+      {/* ⚓ Footer */}
       <Footer />
     </div>
   )

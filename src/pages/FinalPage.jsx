@@ -32,7 +32,7 @@ const cards = [
   },
 ]
 
-export default function FinalPage() {
+export default function FinalPage({ onSlide }) {
   return (
     <Slide
       layout={4} // 👉 Usamos el nuevo formato 4

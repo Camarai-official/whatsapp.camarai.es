@@ -17,8 +17,9 @@ export default function Home({ onSlide }) {
       }
       subtitle="Aprovecha la app de mensajería más popular del mundo para ofrecer una experiencia de autenticación instantánea, segura y sin fricciones."
       primaryButton={{ text: "Comenzar", icon: "mynaui:rocket-solid" }}
-      secondaryButton={{ text: "Conocer más" }}
+      secondaryButton={{ text: "Conocer más", goTo: "Page01" }}
       contentImg={Img}
+      onSlide={onSlide}
     />
 
   )

@@ -26,7 +26,7 @@ const cards = [
 ]
 
 
-export default function Page02() {
+export default function Page02({ onSlide }) {
   return (
     <Slide
       layout={2}
@@ -35,7 +35,8 @@ export default function Page02() {
       cards={cards}
       accentColor1="border-yellow-400/60"
       accentColor2="border-green-300/60"
-      primaryButton={{ text: "Ver cómo funciona", icon: "mynaui:rocket-solid" }}
+      primaryButton={{ text: "Ver cómo funciona", icon: "mynaui:rocket-solid", goTo: "Page03" }}
+      onSlide={onSlide}
     />
   )
 }
