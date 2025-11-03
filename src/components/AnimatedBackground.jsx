@@ -31,7 +31,7 @@ export function AnimatedBackground() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, transparent 50%, rgba(0,0,0,0.8) 80%, rgba(0, 0, 0, 1) 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 80%, rgba(0, 0, 0, 1) 100%)",
         }}
       />
     </div>

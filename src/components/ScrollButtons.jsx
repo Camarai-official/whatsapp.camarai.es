@@ -11,14 +11,14 @@ export default function ScrollButtons({ onPrev, onNext }) {
         onClick={onPrev}
         size={40}
         borderRadius="rounded-full"
-        positionClasses="hidden sm:flex absolute left-2 sm:left-8 md:left-16 lg:left-36 top-1/2 -translate-y-1/2 z-40"
+        positionClasses="hidden lg:flex absolute left-2 lg:left-8 lg:left-16 lg:left-36 top-1/2 -translate-y-1/2 z-40"
       />
       <AnimatedButton
         icon="mdi:chevron-right"
         onClick={onNext}
         size={40}
         borderRadius="rounded-full"
-        positionClasses="hidden sm:flex absolute right-2 sm:right-8 md:right-16 lg:right-36 top-1/2 -translate-y-1/2 z-40"
+        positionClasses="hidden lg:flex absolute right-2 lg:right-8 lg:right-16 lg:right-36 top-1/2 -translate-y-1/2 z-40"
       />
     </>
   )

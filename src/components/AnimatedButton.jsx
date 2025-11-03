@@ -22,7 +22,7 @@ export default function AnimatedButton({
 
   const sizeClass = sizeClasses[size] || sizeClasses[48]
   
-  const baseClasses = `flex items-center justify-center ${sizeClass} ${borderRadius} border cursor-pointer p-1.5 sm:p-2`
+  const baseClasses = `flex items-center justify-center ${sizeClass} ${borderRadius} border cursor-pointer p-1.5 lg:p-2`
   const activeClasses = isActive
     ? "bg-gray-950/90 border-slate-300/30"
     : "bg-slate-300/10 border-slate-300/10 hover:bg-slate-300/20"
@@ -40,7 +40,7 @@ export default function AnimatedButton({
         <img
           src={icon}
           alt=""
-          className="w-4 h-4 sm:w-6 sm:h-6 object-contain opacity-80 hover:opacity-100"
+          className="w-4 h-4 lg:w-6 lg:h-6 object-contain opacity-80 hover:opacity-100"
         />
       ) : (
         <Icon 

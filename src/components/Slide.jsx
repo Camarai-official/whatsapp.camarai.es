@@ -17,7 +17,7 @@ export default function Slide({
 
   /** 🧩 Botones reutilizables (para footer y layout 1) */
   const renderButtons = () => (
-    <div className="flex flex-wrap gap-4 mt-4 sm:justify-start justify-center">
+    <div className="flex flex-wrap gap-4 mt-4 lg:justify-start justify-center">
       {secondaryButton && (
         <button className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10 cursor-pointer">
           {secondaryButton.text}
@@ -89,9 +89,9 @@ export default function Slide({
       /** === LAYOUT 1: Texto + Imagen === */
       case 1:
         return (
-          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 w-full h-full items-center justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 w-full h-full items-center justify-center">
             <div className="flex flex-col gap-6">
-              {title && <h1 className="text-4xl sm:text-6xl font-bold text-green-400">{title}</h1>}
+              {title && <h1 className="text-4xl lg:text-6xl font-bold text-green-400">{title}</h1>}
               {subtitle && <h6 className="text-pretty text-slate-300 text-xl">{subtitle}</h6>}
               {renderButtons()}
             </div>
@@ -103,8 +103,8 @@ export default function Slide({
       case 2:
         const gridCols =
           cards.length === 4
-            ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
-            : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
+            ? "grid-cols-1 lg:grid-cols-2 lg:grid-cols-4"
+            : "grid-cols-1 lg:grid-cols-2 lg:grid-cols-3";
 
         return (
           <div className="flex flex-col items-center justify-center w-full h-full gap-10">
@@ -119,9 +119,9 @@ export default function Slide({
       /** === LAYOUT 3: TESTIMONIO === */
       case 3:
         return (
-          <div className="flex sm:flex-row flex-col gap-10 w-full h-full items-center sm:p-12">
+          <div className="flex lg:flex-row flex-col gap-10 w-full h-full items-center lg:p-12">
             {/* Perfil */}
-            <div className="flex flex-col flex-1 items-center text-center md:text-left gap-2">
+            <div className="flex flex-col flex-1 items-center text-center lg:text-left gap-2">
               {testimonial?.img && (
                 <img
                   src={testimonial.img}
@@ -136,7 +136,7 @@ export default function Slide({
             {/* Cita */}
             <div className="flex flex-col flex-3 items-start text-left gap-6">
               {testimonial?.quote && (
-                <blockquote className="text-slate-100 leading-8 text-lg border-l-2 border-green-300/40 pl-2 sm:pl-8 italic">
+                <blockquote className="text-slate-100 leading-8 text-lg border-l-2 border-green-300/40 pl-2 lg:pl-8 italic">
                   “{testimonial.quote}”
                 </blockquote>
               )}
@@ -147,11 +147,11 @@ export default function Slide({
       /** === LAYOUT 4: GRID DE CARDS + IMAGEN LATERAL === */
       case 4:
         return (
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 w-full items-center justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 w-full items-center justify-center">
             {/* Cards */}
             <div className="flex flex-col items-center justify-center gap-8">
               {cards?.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
                   {cards.map(renderCard)}
                 </div>
               )}
@@ -170,16 +170,16 @@ export default function Slide({
   return (
     <section
       className="
-        relative w-[100vw] sm:w-[94vw] max-w-[1200px] md:h-[87vh]
-        px-4 sm:px-22 py-12 sm:py-8
-        rounded-4xl border border-slate-300/30 bg-slate-950/90 backdrop-blur-xl
+        relative w-full max-w-[1200px] lg:h-[87vh]
+        px-4 lg:px-22 py-12 lg:py-8
+        rounded-4xl border border-slate-300/30 bg-slate-950/60 backdrop-blur-xl
         flex flex-col items-center justify-between gap-6
       "
     >
       {/* HEADER (solo si layout !== 1) */}
       {layout !== 1 && (
         <header
-          className={`w-full flex flex-col sm:flex-row items-center justify-center gap-4 ${
+          className={`w-full flex flex-col lg:flex-row items-center justify-center gap-4 ${
             headerImg ? "text-left" : "text-center"
           }`}
         >
@@ -195,8 +195,8 @@ export default function Slide({
           )}
 
           <div className="flex flex-col gap-2">
-            {title && <h1 className="text-2xl md:text-4xl font-bold text-green-400 text-balance">{title}</h1>}
-            {subtitle && <h6 className="text-pretty text-slate-300 text-sm md:text-xl">{subtitle}</h6>}
+            {title && <h1 className="text-2xl lg:text-4xl font-bold text-green-400 text-balance">{title}</h1>}
+            {subtitle && <h6 className="text-pretty text-slate-300 text-sm lg:text-xl">{subtitle}</h6>}
           </div>
         </header>
       )}
@@ -205,7 +205,7 @@ export default function Slide({
       <div className="w-full h-full rounded-xl">{renderContent()}</div>
 
       {/* FOOTER (solo si layout !== 1) */}
-      {layout !== 1 && <footer className="w-full flex flex-col sm:flex-row items-center justify-center gap-4">{renderButtons()}</footer>}
+      {layout !== 1 && <footer className="w-full flex flex-col lg:flex-row items-center justify-center gap-4">{renderButtons()}</footer>}
     </section>
   );
 }
