@@ -1,19 +1,6 @@
 // Slide.jsx
 import { Icon } from "@iconify/react";
 
-/**
- * Componente Slide
- * Muestra diferentes tipos de secciones (layouts) dentro de un "slide" interactivo.
- * 
- * Props principales:
- * - layout: define el formato visual (1 a 4)
- * - title, subtitle: textos principales
- * - primaryButton, secondaryButton: botones de acción
- * - headerImg, contentImg: imágenes decorativas
- * - cards: lista de tarjetas para layout 2 y 4
- * - testimonial: datos para layout 3
- * - accentColor1, accentColor2: clases de color personalizadas
- */
 export default function Slide({
   headerImg,
   title,
@@ -52,7 +39,7 @@ export default function Slide({
     <div
       key={i}
       className="rounded-2xl p-4 flex flex-col items-center justify-between 
-                 bg-gray-950/30 border border-slate-300/20 
+                 bg-gray-950/60 border border-slate-300/20 
                  hover:scale-[1.02] transition-all gap-2"
     >
       {/* Imagen con glow */}
@@ -192,7 +179,7 @@ export default function Slide({
       {/* HEADER (solo si layout !== 1) */}
       {layout !== 1 && (
         <header
-          className={`w-full flex items-center justify-center gap-4 ${
+          className={`w-full flex flex-col sm:flex-row items-center justify-center gap-4 ${
             headerImg ? "text-left" : "text-center"
           }`}
         >
@@ -202,7 +189,7 @@ export default function Slide({
               <img
                 src={headerImg}
                 alt="Header visual"
-                className="relative w-16 sm:w-20 h-auto drop-shadow-[0_0_10px_rgba(34,197,94,0.4)]"
+                className="relative w-24 h-auto drop-shadow-[0_0_10px_rgba(34,197,94,0.4)]"
               />
             </div>
           )}
