@@ -98,7 +98,7 @@ export default function Slide({
         return (
           <div className="grid grid-cols-1 xl:grid-cols-[3fr_2fr] gap-8 w-full h-full items-center justify-center">
             <div className="flex flex-col gap-6">
-              {title && <h1 className="text-4xl xl:text-6xl font-bold text-green-400">{title}</h1>}
+              {title && <h1 className="text-4xl xl:text-6xl font-bold text-white">{title}</h1>}
               {subtitle && <h6 className="text-pretty text-slate-300 text-xl">{subtitle}</h6>}
               {renderButtons()}
             </div>
