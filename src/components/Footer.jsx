@@ -5,10 +5,10 @@ export default function Footer() {
   return (
     <footer id="Page03" className="w-full xl:fixed xl:bottom-0 xl:z-20">
       <div className="container mx-auto py-4 px-4 xl:px-6 flex items-center justify-between relative">
-        
+
         {/* ===== Texto izquierda (solo desktop) ===== */}
         <p className="hidden xl:block text-xs xl:text-sm text-slate-300 leading-none">
-          &copy; {new Date().getFullYear()} 2025 Camarai. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Camarai. Todos los derechos reservados.
         </p>
 
         {/* ===== Logo centrado (visible siempre) ===== */}
