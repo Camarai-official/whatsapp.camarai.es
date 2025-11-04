@@ -198,7 +198,7 @@ export default function Slide({
           )}
 
           <div className={`flex flex-col gap-2 ${headerImg ? "text-center xl:text-left" : "text-center"}`}>
-            {title && <h1 className="text-2xl xl:text-4xl font-bold text-green-400 text-balance">{title}</h1>}
+            {title && <h1 className="text-2xl xl:text-4xl font-bold text-white text-balance">{title}</h1>}
             {subtitle && <h6 className="text-pretty text-slate-300 text-sm xl:text-xl">{subtitle}</h6>}
           </div>
         </header>
