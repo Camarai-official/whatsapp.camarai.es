@@ -45,8 +45,8 @@ export default function Slide({
   const renderCard = (card, i) => (
     <div
       key={i}
-      className="rounded-2xl p-4 flex flex-col items-center justify-between 
-                 bg-gray-950/60 border border-slate-300/20 
+      className="rounded-2xl p-4 flex flex-col items-center justify-between
+                 bg-gray-950/60 border border-slate-300/20
                  hover:scale-[1.02] transition-all gap-2"
     >
       {/* Imagen con glow */}
