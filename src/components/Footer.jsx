@@ -26,7 +26,7 @@ export default function Footer() {
             alt="Camarai Logo"
             className="h-6 xl:h-8 w-auto object-contain align-middle"
           />
-          <span className="text-white font-semibold tracking-wide text-xs xl:text-[15px] leading-none">
+          <span className="text-slate-50 font-semibold tracking-wide text-xs xl:text-[15px] leading-none">
             camarai.es
           </span>
         </a>

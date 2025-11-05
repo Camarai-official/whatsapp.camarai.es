@@ -98,7 +98,7 @@ export default function Slide({
         return (
           <div className="grid grid-cols-1 xl:grid-cols-[3fr_2fr] gap-8 w-full h-full items-center justify-center">
             <div className="flex flex-col gap-6">
-              {title && <h1 className="text-4xl xl:text-6xl font-bold text-white">{title}</h1>}
+              {title && <h1 className="text-4xl xl:text-6xl font-bold text-slate-50">{title}</h1>}
               {subtitle && <h6 className="text-pretty text-slate-300 text-xl">{subtitle}</h6>}
               {renderButtons()}
             </div>
@@ -132,7 +132,7 @@ export default function Slide({
                   className="w-48 h-48 rounded-full object-cover border-2 border-green-300/40 shadow-md"
                 />
               )}
-              {testimonial?.name && <h3 className="text-2xl font-semibold text-white">{testimonial.name}</h3>}
+              {testimonial?.name && <h3 className="text-2xl font-semibold text-slate-50">{testimonial.name}</h3>}
               {testimonial?.role && <p className="text-green-400 text-sm">{testimonial.role}</p>}
             </div>
 
@@ -198,7 +198,7 @@ export default function Slide({
           )}
 
           <div className={`flex flex-col gap-2 ${headerImg ? "text-center xl:text-left" : "text-center"}`}>
-            {title && <h1 className="text-2xl xl:text-4xl font-bold text-white text-balance">{title}</h1>}
+            {title && <h1 className="text-2xl xl:text-4xl font-bold text-slate-50 text-balance">{title}</h1>}
             {subtitle && <h6 className="text-pretty text-slate-300 text-sm xl:text-xl">{subtitle}</h6>}
           </div>
         </header>
