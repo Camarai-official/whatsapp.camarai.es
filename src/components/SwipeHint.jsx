@@ -6,10 +6,24 @@ export default function SwipeHint() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    // Mostrar después de 6 segundos
     const timer = setTimeout(() => {
       setVisible(true)
-    }, 6000) // ⏱️ aparece después de 6 segundos
-    return () => clearTimeout(timer)
+    }, 6000)
+
+    // Ocultar al detectar interacción
+    const hide = () => setVisible(false)
+
+    window.addEventListener("touchstart", hide, { once: true })
+    window.addEventListener("touchmove", hide, { once: true })
+    window.addEventListener("mousedown", hide, { once: true })
+
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener("touchstart", hide)
+      window.removeEventListener("touchmove", hide)
+      window.removeEventListener("mousedown", hide)
+    }
   }, [])
 
   return (

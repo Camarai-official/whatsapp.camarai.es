@@ -76,6 +76,7 @@ export default function ButtonsUI({
           w-full xl:w-auto
           p-3 rounded-xl 
           top-0 left-1/2 -translate-x-1/2 sm:translate-x-0
+          bg-slate-900 sm:bg-transparent
         `}
       >
         {sections.map((s, i) => (
