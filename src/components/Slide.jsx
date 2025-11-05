@@ -59,7 +59,7 @@ export default function Slide({
 
       {/* Título */}
       <h3
-        className="text-lg font-semibold text-green-300 mb-1 text-center"
+        className="text-lg font-semibold text-slate-200 mb-1 text-center"
         dangerouslySetInnerHTML={{ __html: card.title }}
       />
 
