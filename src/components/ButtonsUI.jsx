@@ -74,7 +74,7 @@ export default function ButtonsUI({
           justify-center items-center xl:justify-normal
           xl:flex-col xl:left-4 xl:top-[10%]
           w-full xl:w-auto
-          p-3 rounded-xl 
+          p-3 rounded-b-xl
           top-0 left-1/2 -translate-x-1/2 sm:translate-x-0
           bg-slate-900 sm:bg-transparent
         `}

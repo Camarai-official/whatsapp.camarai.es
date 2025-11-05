@@ -11,18 +11,34 @@ export default function SwipeHint() {
       setVisible(true)
     }, 6000)
 
-    // Ocultar al detectar interacción
+    // Ocultar al detectar interacción (pointer / touch / mouse)
     const hide = () => setVisible(false)
 
-    window.addEventListener("touchstart", hide, { once: true })
-    window.addEventListener("touchmove", hide, { once: true })
-    window.addEventListener("mousedown", hide, { once: true })
+    // Usamos capture para asegurarnos de capturar la interacción antes que otros listeners
+    const optsCaptureOnce = { capture: true, once: true }
+    const optsCapture = { capture: true }
+
+    // pointer events (unifica touch + mouse where supported)
+    window.addEventListener("pointerdown", hide, optsCaptureOnce)
+    window.addEventListener("pointermove", hide, optsCaptureOnce)
+
+    // fallback: touch & mouse (por compatibilidad con navegadores antiguos)
+    window.addEventListener("touchstart", hide, optsCaptureOnce)
+    window.addEventListener("touchmove", hide, optsCaptureOnce)
+    window.addEventListener("mousedown", hide, optsCaptureOnce)
+
+    // En caso de que algún framework prevenga la propagación,
+    // también registramos un listener en capture sobre document (redundante pero robusto)
+    document.addEventListener("pointerdown", hide, optsCaptureOnce)
 
     return () => {
       clearTimeout(timer)
-      window.removeEventListener("touchstart", hide)
-      window.removeEventListener("touchmove", hide)
-      window.removeEventListener("mousedown", hide)
+      window.removeEventListener("pointerdown", hide, optsCaptureOnce)
+      window.removeEventListener("pointermove", hide, optsCaptureOnce)
+      window.removeEventListener("touchstart", hide, optsCaptureOnce)
+      window.removeEventListener("touchmove", hide, optsCaptureOnce)
+      window.removeEventListener("mousedown", hide, optsCaptureOnce)
+      document.removeEventListener("pointerdown", hide, optsCaptureOnce)
     }
   }, [])
 
@@ -34,6 +50,7 @@ export default function SwipeHint() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          // click directo sigue funcionando
           onClick={() => setVisible(false)}
         >
           <motion.div
