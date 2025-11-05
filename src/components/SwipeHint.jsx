@@ -11,36 +11,10 @@ export default function SwipeHint() {
       setVisible(true)
     }, 6000)
 
-    // Ocultar al detectar interacción (pointer / touch / mouse)
-    const hide = () => setVisible(false)
-
-    // Usamos capture para asegurarnos de capturar la interacción antes que otros listeners
-    const optsCaptureOnce = { capture: true, once: true }
-    const optsCapture = { capture: true }
-
-    // pointer events (unifica touch + mouse where supported)
-    window.addEventListener("pointerdown", hide, optsCaptureOnce)
-    window.addEventListener("pointermove", hide, optsCaptureOnce)
-
-    // fallback: touch & mouse (por compatibilidad con navegadores antiguos)
-    window.addEventListener("touchstart", hide, optsCaptureOnce)
-    window.addEventListener("touchmove", hide, optsCaptureOnce)
-    window.addEventListener("mousedown", hide, optsCaptureOnce)
-
-    // En caso de que algún framework prevenga la propagación,
-    // también registramos un listener en capture sobre document (redundante pero robusto)
-    document.addEventListener("pointerdown", hide, optsCaptureOnce)
-
-    return () => {
-      clearTimeout(timer)
-      window.removeEventListener("pointerdown", hide, optsCaptureOnce)
-      window.removeEventListener("pointermove", hide, optsCaptureOnce)
-      window.removeEventListener("touchstart", hide, optsCaptureOnce)
-      window.removeEventListener("touchmove", hide, optsCaptureOnce)
-      window.removeEventListener("mousedown", hide, optsCaptureOnce)
-      document.removeEventListener("pointerdown", hide, optsCaptureOnce)
-    }
+    return () => clearTimeout(timer)
   }, [])
+
+  const handleClose = () => setVisible(false)
 
   return (
     <AnimatePresence>
@@ -50,24 +24,37 @@ export default function SwipeHint() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          // click directo sigue funcionando
-          onClick={() => setVisible(false)}
+          onClick={handleClose} // se cierra tocando cualquier parte
         >
           <motion.div
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
+            // evita que el click dentro del contenido cierre accidentalmente
+            onClick={(e) => e.stopPropagation()}
           >
             <p className="text-lg font-medium tracking-wide">
               Desliza para conocer más
             </p>
+
             <motion.div
               animate={{ x: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 1.2 }}
             >
               <Icon icon="mdi:arrow-right" width={32} height={32} />
             </motion.div>
+
+            {/* Botón OK */}
+            <motion.button
+              onClick={handleClose}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="mt-4 px-6 py-2 rounded-full bg-white/20 hover:bg-white/30 
+                         text-white font-medium text-base flex items-center gap-2"
+            >
+              <span>OK</span> <span>👌</span>
+            </motion.button>
           </motion.div>
         </motion.div>
       )}
