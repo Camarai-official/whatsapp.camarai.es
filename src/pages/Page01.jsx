@@ -6,47 +6,49 @@ import img3 from "../assets/3.webp"
 import img4 from "../assets/4.webp"
 import img5 from "../assets/5.webp"
 import img6 from "../assets/6.webp"
-
-const cards = [
-  {
-    title: "Acceso en segundos",
-    desc: "Permite a los usuarios entrar en segundos sin contraseñas ni códigos. La autenticación es instantánea, fluida y confiable.",
-    img: img1
-  },
-  {
-    title: "Lead 10X cualificado",
-    desc: "Reduce el CAC y mejora el LTV. Un teléfono verificado garantiza intención real y evita leads falsos, spam y cuentas temporales.",
-    img: img2
-  },
-  {
-    title: "Canal de contacto instantáneo",
-    desc: "Facilita una comunicación directa y efectiva con más del 95% de lectura, optimizando soporte, retención y ventas continuas.",
-    img: img3
-  },
-  {
-    title: "Delegación de backend y seguridad",
-    desc: "Elimina la deuda técnica y el riesgo legal. Camarai gestiona credenciales, cifrado y validaciones con total fiabilidad.",
-    img: img4
-  },
-  {
-    title: "Validación sin contraseñas",
-    desc: "Ahorra en soporte y mantenimiento. La autenticación sin contraseñas agiliza el acceso y reduce incidencias operativas.",
-    img: img5
-  },
-  {
-    title: "Privacidad simplificada",
-    desc: "Cumple fácilmente con GDPR y CCPA. Delegar la autenticación reduce exposición legal y simplifica la gestión de datos.",
-    img: img6
-  }
-]
-
+import { useTranslation } from "../hooks/useTranslation.jsx"
 
 export default function Page01() {
+  const { t } = useTranslation()
+
+  const cards = [
+    {
+      title: t("page01.cards.card1.title"),
+      desc: t("page01.cards.card1.desc"),
+      img: img1
+    },
+    {
+      title: t("page01.cards.card2.title"),
+      desc: t("page01.cards.card2.desc"),
+      img: img2
+    },
+    {
+      title: t("page01.cards.card3.title"),
+      desc: t("page01.cards.card3.desc"),
+      img: img3
+    },
+    {
+      title: t("page01.cards.card4.title"),
+      desc: t("page01.cards.card4.desc"),
+      img: img4
+    },
+    {
+      title: t("page01.cards.card5.title"),
+      desc: t("page01.cards.card5.desc"),
+      img: img5
+    },
+    {
+      title: t("page01.cards.card6.title"),
+      desc: t("page01.cards.card6.desc"),
+      img: img6
+    }
+  ]
+
   return (
     <Slide
       layout={2}
-      title="¿Por qué elegir Login con WhatsApp?"
-      subtitle="Camarai Login está diseñado para simplificar cada etapa del acceso de usuarios."
+      title={t("page01.title")}
+      subtitle={t("page01.subtitle")}
       cards={cards}
     />
   )

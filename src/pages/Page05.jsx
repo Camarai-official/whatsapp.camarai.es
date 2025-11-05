@@ -1,15 +1,18 @@
 import Slide from "../components/Slide.jsx"
 import { Icon } from "@iconify/react"
 import camarai_pincode from "../assets/camarai_pincode.webp"
+import { useTranslation } from "../hooks/useTranslation.jsx"
 
 export default function Page05({ onSlide }) {
+  const { t } = useTranslation()
+
   return (
     <Slide
       layout={1}
-      title="Ahora queremos que lo pruebes."
-      subtitle="Te invitamos a probar Camarai Login en este mismo momento. Escanea el código QR en pantalla y comprueba por ti mismo la velocidad, seguridad y simplicidad de nuestro acceso."
+      title={t("page05.title")}
+      subtitle={t("page05.subtitle")}
       contentImg={camarai_pincode}
-      primaryButton={{ text: "Solicitar PIN", icon: "mynaui:password" }}
+      primaryButton={{ text: t("page05.primaryButton"), icon: "mynaui:password" }}
     />
   )
 }

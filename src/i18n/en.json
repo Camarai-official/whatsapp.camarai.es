@@ -1,0 +1,129 @@
+{
+  "home": {
+    "title1": "Camarai",
+    "title2": "reinvents Login",
+    "title3": "only with",
+    "title4": "WhatsApp",
+    "subtitle": "Leverage the world's most popular messaging app to deliver an instant, secure, and frictionless authentication experience.",
+    "primaryButton": "Get Started",
+    "secondaryButton": "Learn More"
+  },
+  "page01": {
+    "title": "Why choose WhatsApp Login?",
+    "subtitle": "Camarai Login is designed to simplify every stage of user access.",
+    "cards": {
+      "card1": {
+        "title": "Access in seconds",
+        "desc": "Allow users to enter in seconds without passwords or codes. Authentication is instant, smooth and reliable."
+      },
+      "card2": {
+        "title": "10X qualified leads",
+        "desc": "Reduce CAC and improve LTV. A verified phone number guarantees real intent and prevents fake leads, spam and temporary accounts."
+      },
+      "card3": {
+        "title": "Instant contact channel",
+        "desc": "Enables direct and effective communication with over 95% read rate, optimizing support, retention and continuous sales."
+      },
+      "card4": {
+        "title": "Backend and security delegation",
+        "desc": "Eliminates technical debt and legal risk. Camarai manages credentials, encryption and validations with complete reliability."
+      },
+      "card5": {
+        "title": "Passwordless validation",
+        "desc": "Saves on support and maintenance. Passwordless authentication streamlines access and reduces operational incidents."
+      },
+      "card6": {
+        "title": "Simplified privacy",
+        "desc": "Easily comply with GDPR and CCPA. Delegating authentication reduces legal exposure and simplifies data management."
+      }
+    }
+  },
+  "page02": {
+    "title": "Transform access into a competitive advantage.",
+    "subtitle": "Traditional login is a bottleneck. Camarai Login redefines authentication with instant, secure, passwordless access powered by WhatsApp.",
+    "primaryButton": "See how it works",
+    "cards": {
+      "card1": {
+        "title": "Passwordless access",
+        "desc": "Recovery processes frustrate users and increase friction. <br/> High volume of tickets and support costs.",
+        "desc2": "Login via OTP code via WhatsApp. Access in seconds, reducing incidents by up to 90%."
+      },
+      "card2": {
+        "title": "Frictionless verification",
+        "desc": "Manual identity validation is very slow and costly. <br/> Loss of operational time and exposure to fraud.",
+        "desc2": "Instant authentication via WhatsApp number. Enhanced security without interrupting the experience."
+      },
+      "card3": {
+        "title": "SSO with WhatsApp",
+        "desc": "Multiple credentials create chaos and risk. <br/> Reduced productivity and security vulnerabilities.",
+        "desc2": "Single Sign-On with WhatsApp. Centralized, secure and scalable access for your entire team."
+      }
+    }
+  },
+  "page03": {
+    "title": "Make login your best strategy for service and loyalty",
+    "subtitle": "Every friction in access is an invisible barrier that drives your users away. Camarai Login eliminates that friction with a flow as natural as sending a WhatsApp message.",
+    "primaryButton": "Use cases",
+    "cards": {
+      "card1": {
+        "title": "<span class=\"text-slate-300 pr-1 font-bold\">1</span> Request",
+        "desc": "Click on \"Access with WhatsApp\". <br/> Camarai identifies the number and requests an OTP via WhatsApp's official API.",
+        "desc2": "Start without passwords or forms; smooth experience from the first click."
+      },
+      "card2": {
+        "title": "<span class=\"text-slate-300 pr-1 font-bold\">2</span> Validation",
+        "desc": "The user enters the code received on WhatsApp. <br/> The code is validated in real time and the profile is managed (creation or update).",
+        "desc2": "Immediate security without waiting."
+      },
+      "card3": {
+        "title": "<span class=\"text-slate-300 pr-1 font-bold\">3</span> Connection",
+        "desc": "Instant access to the platform. <br/> User information is synchronized with the database or CRM.",
+        "desc2": "Authentication that allows you to enter, connect and retain."
+      }
+    }
+  },
+  "page04": {
+    "title": "\"Now I know who did what\"",
+    "subtitle": "Laura shares how Camarai Login transformed security and traceability in her business.",
+    "primaryButton": "Try Camarai Login",
+    "testimonial": {
+      "name": "Laura Vílchez",
+      "role": "Retail Manager",
+      "quote": "Our biggest risk in retail wasn't slowness, but vulnerability at checkout. Before Camarai, employees often used generic passwords or shared the supervisor key. When there were inventory discrepancies, it was impossible to know who was responsible. By linking TPV access to each manager's personal WhatsApp, we guarantee unique and non-transferable authentication. The result: an incredibly fast system (5 seconds at checkout) and the certainty that every critical operation is performed by the authorized person."
+    }
+  },
+  "page05": {
+    "title": "Now we want you to try it.",
+    "subtitle": "We invite you to try Camarai Login right now. Scan the QR code on screen and see for yourself the speed, security and simplicity of our access.",
+    "primaryButton": "Request PIN"
+  },
+  "finalPage": {
+    "title": "You've already experienced it!",
+    "subtitle": "Now bring WhatsApp authentication to your entire organization.",
+    "primaryButton": "Get started now",
+    "secondaryButton": "Contact specialist",
+    "cards": {
+      "card1": {
+        "title": "Immediate speed",
+        "desc": "Access in <strong>5 seconds</strong>. No waiting or password resets."
+      },
+      "card2": {
+        "title": "Passwordless security",
+        "desc": "Passwordless authentication via WhatsApp: simple, fast and secure."
+      },
+      "card3": {
+        "title": "Total traceability",
+        "desc": "Every action has real identity. Complete control and audit."
+      },
+      "card4": {
+        "title": "Zero friction",
+        "desc": "Everything flows naturally for sales, support and operations."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "policy": "Policy",
+    "terms": "Terms"
+  }
+}

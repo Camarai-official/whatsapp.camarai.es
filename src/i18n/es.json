@@ -1,0 +1,129 @@
+{
+  "home": {
+    "title1": "Camarai",
+    "title2": "reinventa el Login",
+    "title3": "solo con",
+    "title4": "WhatsApp",
+    "subtitle": "Aprovecha la app de mensajería más popular del mundo para ofrecer una experiencia de autenticación instantánea, segura y sin fricciones.",
+    "primaryButton": "Comenzar",
+    "secondaryButton": "Conocer más"
+  },
+  "page01": {
+    "title": "¿Por qué elegir Login con WhatsApp?",
+    "subtitle": "Camarai Login está diseñado para simplificar cada etapa del acceso de usuarios.",
+    "cards": {
+      "card1": {
+        "title": "Acceso en segundos",
+        "desc": "Permite a los usuarios entrar en segundos sin contraseñas ni códigos. La autenticación es instantánea, fluida y confiable."
+      },
+      "card2": {
+        "title": "Lead 10X cualificado",
+        "desc": "Reduce el CAC y mejora el LTV. Un teléfono verificado garantiza intención real y evita leads falsos, spam y cuentas temporales."
+      },
+      "card3": {
+        "title": "Canal de contacto instantáneo",
+        "desc": "Facilita una comunicación directa y efectiva con más del 95% de lectura, optimizando soporte, retención y ventas continuas."
+      },
+      "card4": {
+        "title": "Delegación de backend y seguridad",
+        "desc": "Elimina la deuda técnica y el riesgo legal. Camarai gestiona credenciales, cifrado y validaciones con total fiabilidad."
+      },
+      "card5": {
+        "title": "Validación sin contraseñas",
+        "desc": "Ahorra en soporte y mantenimiento. La autenticación sin contraseñas agiliza el acceso y reduce incidencias operativas."
+      },
+      "card6": {
+        "title": "Privacidad simplificada",
+        "desc": "Cumple fácilmente con GDPR y CCPA. Delegar la autenticación reduce exposición legal y simplifica la gestión de datos."
+      }
+    }
+  },
+  "page02": {
+    "title": "Transforma el acceso en una ventaja competitiva.",
+    "subtitle": "El login tradicional es un cuello de botella. Camarai Login redefine la autenticación con un acceso instantáneo, seguro y sin contraseñas, impulsado por WhatsApp.",
+    "primaryButton": "Ver cómo funciona",
+    "cards": {
+      "card1": {
+        "title": "Acceso sin contraseñas",
+        "desc": "Los procesos de recuperación frustran a los usuarios y aumentan la fricción. <br/> Elevado volumen de tickets y costes de soporte.",
+        "desc2": "Login mediante código OTP por WhatsApp. Acceso en segundos, reducción de incidencias hasta un 90 %."
+      },
+      "card2": {
+        "title": "Verificación sin fricción",
+        "desc": "La validación de identidad manual es muy lenta y costosa. <br/> Pérdida de tiempo operativo y exposición a fraude.",
+        "desc2": "Autenticación instantánea a través del número de WhatsApp. Seguridad reforzada sin interrumpir la experiencia."
+      },
+      "card3": {
+        "title": "SSO con WhatsApp",
+        "desc": "Múltiples credenciales generan caos y riesgo. <br/> Productividad reducida y vulnerabilidades de seguridad.",
+        "desc2": "Single Sign-On con WhatsApp. Acceso centralizado, seguro y escalable para todo tu equipo."
+      }
+    }
+  },
+  "page03": {
+    "title": "Haz del login tu mejor estrategia de atención y fidelización",
+    "subtitle": "Cada fricción en el acceso es una barrera invisible que aleja a tus usuarios. Camarai Login elimina esa fricción con un flujo tan natural como enviar un mensaje de WhatsApp.",
+    "primaryButton": "Casos de uso",
+    "cards": {
+      "card1": {
+        "title": "<span class=\"text-slate-300 pr-1 font-bold\">1</span> Pedido",
+        "desc": "Clic en \"Acceder con WhatsApp\". <br/> Camarai identifica el número y solicita un OTP mediante la API oficial de WhatsApp.",
+        "desc2": "Inicio sin contraseñas ni formularios; experiencia fluida desde el primer clic."
+      },
+      "card2": {
+        "title": "<span class=\"text-slate-300 pr-1 font-bold\">2</span> Validación",
+        "desc": "El usuario ingresa el código recibido en WhatsApp. <br/> El código se valida en tiempo real y se gestiona el perfil (creación o actualización).",
+        "desc2": "Seguridad inmediata y sin esperas."
+      },
+      "card3": {
+        "title": "<span class=\"text-slate-300 pr-1 font-bold\">3</span> Conexión",
+        "desc": "Acceso instantáneo a la plataforma. <br/> La información del usuario se sincroniza con la base de datos o CRM.",
+        "desc2": "Autenticación que permite entrar, conectar y retener."
+      }
+    }
+  },
+  "page04": {
+    "title": "\"Ahora sé quién hizo qué\"",
+    "subtitle": "Laura comparte cómo Camarai Login transformó la seguridad y trazabilidad en su negocio.",
+    "primaryButton": "Prueba Camarai Login",
+    "testimonial": {
+      "name": "Laura Vílchez",
+      "role": "Retail Manager",
+      "quote": "Nuestro mayor riesgo en el retail no era la lentitud, sino la vulnerabilidad en la caja. Antes de Camarai, los empleados a menudo usaban contraseñas genéricas o compartían la clave de supervisor. Cuando había discrepancias de inventario, era imposible saber quién fue el responsable. Al enlazar el acceso al TPV con el WhatsApp personal de cada encargado, garantizamos una autenticación única y no transferible. El resultado: un sistema increíblemente rápido (5 segundos en caja) y la certeza de que cada operación crítica es realizada por la persona autorizada."
+    }
+  },
+  "page05": {
+    "title": "Ahora queremos que lo pruebes.",
+    "subtitle": "Te invitamos a probar Camarai Login en este mismo momento. Escanea el código QR en pantalla y comprueba por ti mismo la velocidad, seguridad y simplicidad de nuestro acceso.",
+    "primaryButton": "Solicitar PIN"
+  },
+  "finalPage": {
+    "title": "¡Ya lo experimentaste!",
+    "subtitle": "Ahora lleva la autenticación por WhatsApp a toda tu organización.",
+    "primaryButton": "Comenzar ya",
+    "secondaryButton": "Contactar especialista",
+    "cards": {
+      "card1": {
+        "title": "Velocidad inmediata",
+        "desc": "Acceso en <strong>5 segundos</strong>. Sin esperas ni resets de contraseña."
+      },
+      "card2": {
+        "title": "Seguridad sin contraseñas",
+        "desc": "Autenticación passwordless por WhatsApp: simple, rápida y segura."
+      },
+      "card3": {
+        "title": "Trazabilidad total",
+        "desc": "Cada acción tiene identidad real. Control y auditoría completa."
+      },
+      "card4": {
+        "title": "Fricción cero",
+        "desc": "Todo fluye de forma natural para ventas, soporte y operaciones."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados.",
+    "policy": "Política",
+    "terms": "Términos"
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react"
 import Slide from "../components/Slide.jsx"
 import { Icon } from "@iconify/react"
+import { useTranslation } from "../hooks/useTranslation.jsx"
 
 import Img from "../assets/camarai_rocket.webp"
 import Img1 from "../assets/1.webp"
@@ -8,45 +9,47 @@ import Img2 from "../assets/2.webp"
 import Img7 from "../assets/7.webp"
 import Img9 from "../assets/9.webp"
 
-// === DATA: CARDS ===
-const cards = [
-  {
-    img: Img1,
-    title: "Velocidad inmediata",
-    desc: "Acceso en <strong>5 segundos</strong>. Sin esperas ni resets de contraseña.",
-  },
-  {
-    img: Img9,
-    title: "Seguridad sin contraseñas",
-    desc: "Autenticación passwordless por WhatsApp: simple, rápida y segura.",
-  },
-  {
-    img: Img2,
-    title: "Trazabilidad total",
-    desc: "Cada acción tiene identidad real. Control y auditoría completa.",
-  },
-  {
-    img: Img7,
-    title: "Fricción cero",
-    desc: "Todo fluye de forma natural para ventas, soporte y operaciones.",
-  },
-]
-
 export default function FinalPage({ onSlide }) {
+  const { t } = useTranslation()
+
+  // === DATA: CARDS ===
+  const cards = [
+    {
+      img: Img1,
+      title: t("finalPage.cards.card1.title"),
+      desc: t("finalPage.cards.card1.desc"),
+    },
+    {
+      img: Img9,
+      title: t("finalPage.cards.card2.title"),
+      desc: t("finalPage.cards.card2.desc"),
+    },
+    {
+      img: Img2,
+      title: t("finalPage.cards.card3.title"),
+      desc: t("finalPage.cards.card3.desc"),
+    },
+    {
+      img: Img7,
+      title: t("finalPage.cards.card4.title"),
+      desc: t("finalPage.cards.card4.desc"),
+    },
+  ]
+
   return (
     <Slide
       layout={4} // 👉 Usamos el nuevo formato 4
       contentImg={Img}
-      title="¡Ya lo experimentaste!"
-      subtitle="Ahora lleva la autenticación por WhatsApp a toda tu organización."
+      title={t("finalPage.title")}
+      subtitle={t("finalPage.subtitle")}
       cards={cards}
       accentColor1="border-slate-400"
       primaryButton={{
-        text: "Comenzar ya",
+        text: t("finalPage.primaryButton"),
         icon: "mynaui:rocket-solid",
       }}
       secondaryButton={{
-        text: "Contactar especialista",
+        text: t("finalPage.secondaryButton"),
         icon: "mynaui:chat-dots-solid",
       }}
     />
