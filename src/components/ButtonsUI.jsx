@@ -67,19 +67,20 @@ export default function ButtonsUI({
 
   return (
     <>
-      {/* 🧭 Lista de slides siempre visible */}
+      {/* 🧭 Lista de slides */}
       <nav
         className={`
-          fixed z-40
-          flex xl:flex-col gap-3 xl:gap-5
-          items-center justify-center
-          bg-slate-950/80 backdrop-blur-lg border border-slate-300/20
-          p-3 rounded-xl
+          fixed z-40 flex gap-3 xl:gap-5
+          justify-center items-center xl:justify-normal
           transition-all duration-300
-          xl:left-4 xl:top-[10%]
-          bottom-6 left-1/2 -translate-x-1/2 w-auto xl:w-auto
+          xl:flex-col xl:left-4 xl:top-[10%]
+          w-full xl:w-auto
+          p-3 rounded-xl 
+          bottom-0 left-1/2 -translate-x-1/2 sm:translate-x-0
+          
         `}
       >
+
         {sections.map((s, i) => (
           <Btn
             key={s.id}
