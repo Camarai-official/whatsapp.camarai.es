@@ -72,7 +72,6 @@ export default function ButtonsUI({
         className={`
           fixed z-40 flex gap-3 xl:gap-5
           justify-center items-center xl:justify-normal
-          transition-all duration-300
           xl:flex-col xl:left-4 xl:top-[10%]
           w-full xl:w-auto
           p-3 rounded-xl 
