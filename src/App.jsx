@@ -56,7 +56,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative flex flex-col overflow-x-hidden sm:pb-0">
+    <div className="relative flex flex-col overflow-x-hidden pb-8 sm:pb-0">
       {/* 🌌 Fondo animado */}
       <AnimatedBackground />
 
