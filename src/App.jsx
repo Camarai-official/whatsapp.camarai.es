@@ -11,6 +11,7 @@ import Page05 from "./pages/Page05"
 import FinalPage from "./pages/FinalPage"
 import { AnimatedBackground } from "./components/AnimatedBackground"
 import useHashNavigation from "./hooks/useHashNavigation"
+import SwipeHint from "./components/SwipeHint"
 
 const SECTIONS = [
   { id: "Page00", Comp: Home },
@@ -94,6 +95,7 @@ export default function App() {
             )
           })()}
         </AnimatePresence>
+        <SwipeHint />
       </main>
 
       {/* ⚓ Footer */}
