@@ -76,11 +76,9 @@ export default function ButtonsUI({
           xl:flex-col xl:left-4 xl:top-[10%]
           w-full xl:w-auto
           p-3 rounded-xl 
-          bottom-0 left-1/2 -translate-x-1/2 sm:translate-x-0
-          
+          top-0 left-1/2 -translate-x-1/2 sm:translate-x-0
         `}
       >
-
         {sections.map((s, i) => (
           <Btn
             key={s.id}
@@ -114,31 +112,6 @@ export default function ButtonsUI({
               className="hidden xl:flex absolute right-36 top-1/2 -translate-y-1/2 z-40"
             />
           )}
-
-          {/* 📱 Mobile: botones arriba tipo header sin fondo */}
-          <div
-            className="flex xl:hidden fixed top-2 left-0 right-0 justify-between 
-                       items-center px-4 z-50 pointer-events-none"
-          >
-            <div className="pointer-events-auto">
-              <Btn
-                icon="mdi:chevron-left"
-                onClick={onPrev}
-                size={42}
-                rounded="full"
-                className={`${isFirst ? "opacity-30 pointer-events-none" : ""}`}
-              />
-            </div>
-            <div className="pointer-events-auto">
-              <Btn
-                icon="mdi:chevron-right"
-                onClick={onNext}
-                size={42}
-                rounded="full"
-                className={`${isLast ? "opacity-30 pointer-events-none" : ""}`}
-              />
-            </div>
-          </div>
         </>
       )}
     </>
