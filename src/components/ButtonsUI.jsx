@@ -73,12 +73,14 @@ export default function ButtonsUI({
           fixed z-40 flex gap-3 xl:gap-5
           justify-center items-center xl:justify-normal
           xl:flex-col xl:left-4 xl:top-[10%]
-          w-full xl:w-auto
-          p-3 rounded-b-xl
-          top-0 left-1/2 -translate-x-1/2 sm:translate-x-0
-          bg-slate-900 sm:bg-transparent
+          w-[calc(100%-1rem)] sm:w-auto  /* ← margen visual en mobile */
+          p-2 rounded-2xl
+          top-2 left-1/2 -translate-x-1/2 sm:translate-x-0
+          bg-slate-900/90 sm:bg-transparent
+          shadow-lg
         `}
       >
+
         {sections.map((s, i) => (
           <Btn
             key={s.id}

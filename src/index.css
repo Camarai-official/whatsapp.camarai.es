@@ -8,6 +8,9 @@
 html, body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+}
+
+html {
   background-color: #050C0F;
 }
 
