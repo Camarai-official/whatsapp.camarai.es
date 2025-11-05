@@ -175,7 +175,7 @@ export default function Slide({
       className="
         relative w-full max-w-[1200px] xl:h-[87vh]
         px-4 xl:px-22 py-12 xl:py-8
-        rounded-4xl border sm:border-slate-300/30 bg-slate-950/60 backdrop-blur-xl
+        rounded-4xl border sm:border-slate-300/30 bg-none sm:bg-slate-950/60 sm:backdrop-blur-xl
         flex flex-col items-center justify-center gap-6
       "
     >

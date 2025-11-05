@@ -103,7 +103,8 @@ export function AnimatedBackground() {
                         repeat: Infinity,
                     }}
                 />
-                 {/* Glitch Effect Layer */}
+
+                {/* Glitch Effect Layer */}
                 <motion.div
                     style={{
                         position: 'absolute',
@@ -111,7 +112,8 @@ export function AnimatedBackground() {
                         left: 0,
                         width: '100%',
                         height: '100%',
-                        backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 1px, transparent 1px, transparent 4px)',
+                        backgroundImage:
+                            'repeating-linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 1px, transparent 1px, transparent 4px)',
                         backgroundSize: '100% 4px',
                         zIndex: 4,
                         opacity: 0.1,
@@ -126,6 +128,17 @@ export function AnimatedBackground() {
                         repeat: Infinity,
                         repeatType: 'loop',
                     }}
+                />
+
+                {/* Overlay móvil */}
+                <div
+                    className="
+                        absolute inset-0 
+                        bg-slate-950/60 
+                        backdrop-blur-xl 
+                        z-[6] 
+                        md:hidden
+                    "
                 />
             </div>
         </motion.div>
