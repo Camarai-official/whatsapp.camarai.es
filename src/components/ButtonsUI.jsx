@@ -76,8 +76,8 @@ export default function ButtonsUI({
           w-[calc(100%-1rem)] sm:w-auto  /* ← margen visual en mobile */
           p-2 rounded-2xl
           top-2 left-1/2 -translate-x-1/2 sm:translate-x-0
-          bg-slate-900/90 sm:bg-transparent
-          shadow-lg
+          bg-slate-900/90 backdrop-blur-xl sm:backdrop-blur-none sm:bg-transparent
+          shadow-lg sm:shadow-none
         `}
       >
 
