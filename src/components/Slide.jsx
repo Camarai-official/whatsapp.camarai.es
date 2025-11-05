@@ -84,7 +84,7 @@ export default function Slide({
     <div className="flex justify-center items-center">
       <div className="relative">
         <div className="absolute inset-0 rounded-full bg-green-400/60 blur-3xl pointer-events-none"></div>
-        <img src={src} alt={alt} className="relative w-full max-w-sm object-contain" />
+        <img src={src} alt={alt} className="relative w-full max-w-sm object-contain max-h-100" />
       </div>
     </div>
   );
@@ -176,7 +176,7 @@ export default function Slide({
         relative w-full max-w-[1200px] xl:h-[87vh]
         px-4 xl:px-22 py-12 xl:py-8
         rounded-4xl border border-slate-300/30 bg-slate-950/60 backdrop-blur-xl
-        flex flex-col items-center justify-between gap-6
+        flex flex-col items-center justify-center gap-6
       "
     >
       {/* HEADER (si layout !== 1) */}
@@ -205,7 +205,7 @@ export default function Slide({
       )}
 
       {/* CONTENIDO CENTRAL */}
-      <div className="w-full h-full rounded-xl">{renderContent()}</div>
+      <div className="w-full rounded-xl">{renderContent()}</div>
 
       {/* FOOTER (solo si layout !== 1) */}
       {layout !== 1 && <footer className="w-full flex flex-col xl:flex-row items-center justify-center gap-4">{renderButtons()}</footer>}
