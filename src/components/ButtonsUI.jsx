@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Icon } from "@iconify/react"
 import { motion } from "framer-motion"
 import camaraiLogo from "../assets/camarai_logo.webp"
@@ -20,9 +20,6 @@ export default function ButtonsUI({
   onPrev,
   onNext
 }) {
-  const [open, setOpen] = useState(false)
-  const toggle = () => setOpen(!open)
-
   const isFirst = currentIndex === 0
   const isLast = currentIndex === sections.length - 1
 
@@ -35,9 +32,9 @@ export default function ButtonsUI({
     className = ""
   }) => {
     const shape = rounded === "full" ? "rounded-full" : "rounded-xl"
-    const base = `flex items-center justify-center ${shape} border cursor-pointer`
+    const base = `flex items-center justify-center ${shape} border cursor-pointer transition`
     const state = active
-      ? "bg-gray-950/90 border-slate-300/30"
+      ? "bg-gray-950/90 border-slate-300/30 scale-105"
       : "bg-slate-300/10 border-slate-300/10 hover:bg-slate-300/20"
     const isImage =
       typeof icon === "string" && icon.match(/\.(png|jpg|jpeg|webp|svg)$/i)
@@ -70,48 +67,31 @@ export default function ButtonsUI({
 
   return (
     <>
-      {/* 🍔 Botón hamburguesa móvil */}
-      <Btn
-        icon={open ? "mdi:close" : "mdi:menu"}
-        onClick={toggle}
-        size={40}
-        className="fixed left-3 top-2 xl:left-4 xl:top-4 z-50 xl:hidden
-                   bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
-      />
-
-      {/* 🧭 Navegación lateral */}
+      {/* 🧭 Lista de slides siempre visible */}
       <nav
-        className={`fixed left-2 xl:left-4 top-[10%] flex flex-col gap-3 xl:gap-5 z-40
-          transition-all duration-300 ease-in-out
-          ${open
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0 xl:translate-x-0 xl:opacity-100"}
-          bg-slate-950/80 xl:bg-transparent
-          p-3 xl:p-0 rounded-xl xl:rounded-none border border-slate-300/20 xl:border-0`}
+        className={`
+          fixed z-40
+          flex xl:flex-col gap-3 xl:gap-5
+          items-center justify-center
+          bg-slate-950/80 backdrop-blur-lg border border-slate-300/20
+          p-3 rounded-xl
+          transition-all duration-300
+          xl:left-4 xl:top-[10%]
+          bottom-6 left-1/2 -translate-x-1/2 w-auto xl:w-auto
+        `}
       >
         {sections.map((s, i) => (
           <Btn
             key={s.id}
             icon={ICONS[s.id]}
-            onClick={() => {
-              onSelect(i)
-              setOpen(false)
-            }}
+            onClick={() => onSelect(i)}
             active={currentIndex === i}
             size={40}
           />
         ))}
       </nav>
 
-      {/* 🌫 Overlay móvil */}
-      {open && (
-        <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 xl:hidden"
-          onClick={() => setOpen(false)}
-        />
-      )}
-
-      {/* 🧭 Botones de scroll integrados */}
+      {/* 🧭 Botones de navegación */}
       {(onPrev || onNext) && (
         <>
           {/* 💻 Desktop: laterales centrados */}
@@ -134,24 +114,29 @@ export default function ButtonsUI({
             />
           )}
 
-          {/* 📱 Mobile: arriba a la derecha */}
-          <div className="flex xl:hidden fixed top-2 right-4 z-50 gap-6">
-            {!isFirst && (
+          {/* 📱 Mobile: botones arriba tipo header sin fondo */}
+          <div
+            className="flex xl:hidden fixed top-2 left-0 right-0 justify-between 
+                       items-center px-4 z-50 pointer-events-none"
+          >
+            <div className="pointer-events-auto">
               <Btn
                 icon="mdi:chevron-left"
                 onClick={onPrev}
-                size={40}
-                className="bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
+                size={42}
+                rounded="full"
+                className={`${isFirst ? "opacity-30 pointer-events-none" : ""}`}
               />
-            )}
-            {!isLast && (
+            </div>
+            <div className="pointer-events-auto">
               <Btn
                 icon="mdi:chevron-right"
                 onClick={onNext}
-                size={40}
-                className="bg-slate-950/90 border border-slate-300/30 hover:bg-slate-900/90"
+                size={42}
+                rounded="full"
+                className={`${isLast ? "opacity-30 pointer-events-none" : ""}`}
               />
-            )}
+            </div>
           </div>
         </>
       )}
