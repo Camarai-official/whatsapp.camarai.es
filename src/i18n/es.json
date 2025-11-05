@@ -66,17 +66,17 @@
     "primaryButton": "Casos de uso",
     "cards": {
       "card1": {
-        "title": "<span class=\"text-slate-300 pr-1 font-bold\">1</span> Pedido",
+        "title": "<span class=\"text-slate-400 pr-1 font-bold\">1</span> Pedido",
         "desc": "Clic en \"Acceder con WhatsApp\". <br/> Camarai identifica el número y solicita un OTP mediante la API oficial de WhatsApp.",
         "desc2": "Inicio sin contraseñas ni formularios; experiencia fluida desde el primer clic."
       },
       "card2": {
-        "title": "<span class=\"text-slate-300 pr-1 font-bold\">2</span> Validación",
+        "title": "<span class=\"text-slate-400 pr-1 font-bold\">2</span> Validación",
         "desc": "El usuario ingresa el código recibido en WhatsApp. <br/> El código se valida en tiempo real y se gestiona el perfil (creación o actualización).",
         "desc2": "Seguridad inmediata y sin esperas."
       },
       "card3": {
-        "title": "<span class=\"text-slate-300 pr-1 font-bold\">3</span> Conexión",
+        "title": "<span class=\"text-slate-400 pr-1 font-bold\">3</span> Conexión",
         "desc": "Acceso instantáneo a la plataforma. <br/> La información del usuario se sincroniza con la base de datos o CRM.",
         "desc2": "Autenticación que permite entrar, conectar y retener."
       }

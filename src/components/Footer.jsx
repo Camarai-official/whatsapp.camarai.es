@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto py-4 px-4 xl:px-6 flex items-center justify-between relative">
 
         {/* ===== Texto izquierda (solo desktop) ===== */}
-        <p className="hidden xl:block text-xs xl:text-sm text-slate-300 leading-none">
+        <p className="hidden xl:block text-xs xl:text-sm text-slate-400 leading-none">
           &copy; {new Date().getFullYear()} Camarai. {t("footer.copyright")}
         </p>
 
@@ -26,17 +26,17 @@ export default function Footer() {
             alt="Camarai Logo"
             className="h-6 xl:h-8 w-auto object-contain align-middle"
           />
-          <span className="text-slate-50 font-semibold tracking-wide text-xs xl:text-[15px] leading-none">
+          <span className="text-slate-100 font-semibold tracking-wide text-xs xl:text-[15px] leading-none">
             camarai.es
           </span>
         </a>
 
         {/* ===== Enlaces derecha (solo desktop) ===== */}
         <div className="hidden xl:flex items-center gap-4 text-xs xl:text-sm font-medium leading-none">
-          <a href="https://www.camarai.es/privacy-policy" target="_blank" className="text-slate-300 hover:text-slate-200">
+          <a href="https://www.camarai.es/privacy-policy" target="_blank" className="text-slate-400 hover:text-slate-200">
             {t("footer.policy")}
           </a>
-          <a href="https://www.camarai.es/terms" target="_blank" className="text-slate-300 hover:text-slate-200">
+          <a href="https://www.camarai.es/terms" target="_blank" className="text-slate-400 hover:text-slate-200">
             {t("footer.terms")}
           </a>
         </div>

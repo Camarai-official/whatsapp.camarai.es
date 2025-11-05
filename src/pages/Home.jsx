@@ -11,7 +11,7 @@ export default function Home({ onSlide }) {
       title={
         <>
           <span className="bg-gradient-to-r from-[#78A3ED] via-[#9B6EFD] to-[#F0768C] bg-clip-text text-transparent"> {t("home.title1")} </span> <br />
-          <span className="text-slate-50">
+          <span className="text-slate-100">
             {t("home.title2")} <br />
             {t("home.title3")}{" "}
           </span>
