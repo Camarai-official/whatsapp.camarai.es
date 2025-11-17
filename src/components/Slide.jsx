@@ -207,91 +207,35 @@ export default function Slide({
       /** === LAYOUT 5: MISIÓN CON ROBOT === */
       case 5:
         return (
-          <div className="w-full h-full flex flex-col relative">
-            {/* Label "NUESTRA MISIÓN" - Arriba a la izquierda */}
-            {missionLabel && (
-              <div className="text-white uppercase mb-2 xl:mb-3" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 900, fontSize: '24px' }}>
-                {missionLabel}
-              </div>
-            )}
-
-            {/* Contenido principal: Texto a la derecha primero, Robot a la izquierda */}
-            <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-4 xl:gap-8 items-start flex-1 mt-2 xl:mt-3">
-              {/* Lado derecho: Párrafos - Primero en el orden (derecha) */}
-              <div className="flex flex-col gap-3 xl:gap-4 text-white pt-2 xl:pt-4 order-2 xl:order-2">
-                {paragraph1 && (
-                  <p className="leading-relaxed text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '22px' }}>
-                    {paragraph1}
-                  </p>
-                )}
-                {paragraph2 && (
-                  <p className="leading-relaxed text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '22px' }}>
-                    {paragraph2}
-                  </p>
-                )}
-              </div>
-
-              {/* Lado izquierdo: Título arriba, Robot abajo - Segundo en el orden (izquierda) */}
-              <div className="flex flex-col justify-between h-full order-1 xl:order-1 min-h-0">
-                {/* Título con gradiente y línea vertical */}
-                <div className="flex-1">
-                  {(title1 || title2) && (
-                    <div className="flex items-start gap-2 xl:gap-3">
-                      {/* Línea vertical blanca delgada */}
-                      <div className="w-px bg-white h-full min-h-[120px]"></div>
-                      <div className="flex flex-col gap-0.5 xl:gap-1">
-                        {title1 && (
-                          <h1
-                            className="font-black uppercase"
-                            style={{
-                              fontFamily: "'Inter', sans-serif",
-                              fontWeight: 900,
-                              fontSize: '50px',
-                              lineHeight: '1.05',
-                              background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
-                              WebkitBackgroundClip: 'text',
-                              WebkitTextFillColor: 'transparent',
-                              backgroundClip: 'text'
-                            }}
-                          >
-                            {title1}
-                          </h1>
-                        )}
-                        {title2 && (
-                          <h1
-                            className="font-black uppercase"
-                            style={{
-                              fontFamily: "'Inter', sans-serif",
-                              fontWeight: 900,
-                              fontSize: '50px',
-                              lineHeight: '1.05',
-                              background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
-                              WebkitBackgroundClip: 'text',
-                              WebkitTextFillColor: 'transparent',
-                              backgroundClip: 'text'
-                            }}
-                          >
-                            {title2}
-                          </h1>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Robot - Abajo a la izquierda */}
-                {contentImg && (
-                  <div className="mt-auto flex items-end justify-start">
-                    <div className="pt-3 xl:pt-4 pb-2 xl:pb-3">
-                      <img
-                        src={contentImg}
-                        alt="Robot"
-                        className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl object-contain"
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
+          <div className="w-full h-full flex flex-col justify-center items-end relative">
+            {/* Párrafos justificados a la derecha */}
+            <div className="flex flex-col gap-6 xl:gap-8 text-white max-w-2xl xl:max-w-3xl">
+              {paragraph1 && (
+                <p
+                  className="leading-relaxed"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: '22px',
+                    textAlign: 'right'
+                  }}
+                >
+                  {paragraph1}
+                </p>
+              )}
+              {paragraph2 && (
+                <p
+                  className="leading-relaxed"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: '22px',
+                    textAlign: 'right'
+                  }}
+                >
+                  {paragraph2}
+                </p>
+              )}
             </div>
           </div>
         );
@@ -338,10 +282,83 @@ export default function Slide({
       )}
 
       {/* CONTENIDO CENTRAL */}
-      <div className="w-full rounded-xl">{renderContent()}</div>
+      <div className={`${layout === 5 ? 'w-1/2 h-1/2 ml-auto self-center overflow-y-auto' : 'w-full'} rounded-xl`}>{renderContent()}</div>
 
-      {/* FOOTER (solo si layout !== 1) */}
-      {layout !== 1 && <footer className="w-full flex flex-col xl:flex-row items-center justify-center gap-4">{renderButtons()}</footer>}
+      {/* Elementos del layout 5 fuera de renderContent */}
+      {layout === 5 && (
+        <>
+          {/* Label "NUESTRA MISIÓN" - Arriba a la izquierda */}
+          {missionLabel && (
+            <div
+              className="absolute top-6 left-6 z-20 text-white uppercase"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 900,
+                fontSize: '24px'
+              }}
+            >
+              {missionLabel}
+            </div>
+          )}
+
+          {/* Título con gradiente y línea vertical - Hacia la izquierda */}
+          {(title1 || title2) && (
+            <div className="absolute top-16 xl:top-20 left-6 xl:left-8 z-20 pt-2">
+              <div className="flex items-start gap-2 xl:gap-3">
+                {/* Línea vertical blanca delgada */}
+                <div className="w-px bg-[#9B6EFD] h-full min-h-[100px] xl:min-h-[120px]"></div>
+                <div className="flex flex-col gap-0.5 xl:gap-1">
+                  {title1 && (
+                    <h1
+                      className="font-black uppercase"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 900,
+                        fontSize: '50px',
+                        lineHeight: '1.05',
+                        background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      {title1}
+                    </h1>
+                  )}
+                  {title2 && (
+                    <h1
+                      className="font-black uppercase"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 900,
+                        fontSize: '50px',
+                        lineHeight: '1.05',
+                        background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      {title2}
+                    </h1>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Robot - Solo para layout 5, fuera del contenedor renderContent */}
+      {layout === 5 && contentImg && (
+        <div className="absolute bottom-0 left-0" style={{ left: 0, bottom: 0 }}>
+          <img
+            src={contentImg}
+            alt="Robot"
+            className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl object-contain"
+          />
+        </div>
+      )}
     </section>
   );
 }
