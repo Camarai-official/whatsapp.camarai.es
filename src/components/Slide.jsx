@@ -282,7 +282,7 @@ export default function Slide({
       )}
 
       {/* CONTENIDO CENTRAL */}
-      <div className={`${layout === 5 ? 'w-1/2 h-1/2 ml-auto self-center overflow-y-auto' : 'w-full'} rounded-xl`}>{renderContent()}</div>
+      <div className={`${layout === 5 ? 'w-4/6 h-1/2 ml-auto self-center overflow-y-auto pt-10' : 'w-full'} rounded-xl`}>{renderContent()}</div>
 
       {/* Elementos del layout 5 fuera de renderContent */}
       {layout === 5 && (
@@ -290,7 +290,7 @@ export default function Slide({
           {/* Label "NUESTRA MISIÓN" - Arriba a la izquierda */}
           {missionLabel && (
             <div
-              className="absolute top-6 left-6 z-20 text-white uppercase"
+              className="absolute top-10 left-12 z-20 text-white uppercase"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 900,
@@ -303,10 +303,10 @@ export default function Slide({
 
           {/* Título con gradiente y línea vertical - Hacia la izquierda */}
           {(title1 || title2) && (
-            <div className="absolute top-16 xl:top-20 left-6 xl:left-8 z-20 pt-2">
+            <div className="absolute top-30 left-12 z-20 pt-2">
               <div className="flex items-start gap-2 xl:gap-3">
-                {/* Línea vertical blanca delgada */}
-                <div className="w-px bg-[#9B6EFD] h-full min-h-[100px] xl:min-h-[120px]"></div>
+                {/* Línea vertical ahora más gruesa y ancha */}
+                <div className="w-2 bg-[#9B6EFD] h-full min-h-[100px] xl:min-h-[120px] rounded-lg"></div>
                 <div className="flex flex-col gap-0.5 xl:gap-1">
                   {title1 && (
                     <h1
