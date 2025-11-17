@@ -1,42 +1,19 @@
 {
   "home": {
-    "title1": "Camarai",
-    "title2": "reinventa el Login",
-    "title3": "solo con",
-    "title4": "WhatsApp",
-    "subtitle": "Aprovecha la app de mensajería más popular del mundo para ofrecer una experiencia de autenticación instantánea, segura y sin fricciones.",
+    "title1": "EL PLAN DE DOMINIO DEL",
+    "title2": "SECTOR HORECA",
+    "title3": "",
+    "title4": "",
+    "subtitle": "Somos la solución tecnológica de stack completo que transforma la rentabilidad de la hostelería. En Camarai, eliminamos la fricción operativa y optimizamos el uso del recurso humano con inteligencia artificial aplicada.",
     "primaryButton": "Comenzar",
     "secondaryButton": "Conocer más"
   },
   "page01": {
-    "title": "¿Por qué elegir Login con WhatsApp?",
-    "subtitle": "Camarai Login está diseñado para simplificar cada etapa del acceso de usuarios.",
-    "cards": {
-      "card1": {
-        "title": "Acceso en segundos",
-        "desc": "Permite a los usuarios entrar en segundos sin contraseñas ni códigos. La autenticación es instantánea, fluida y confiable."
-      },
-      "card2": {
-        "title": "Lead 10X cualificado",
-        "desc": "Reduce el CAC y mejora el LTV. Un teléfono verificado garantiza intención real y evita leads falsos, spam y cuentas temporales."
-      },
-      "card3": {
-        "title": "Canal de contacto instantáneo",
-        "desc": "Facilita una comunicación directa y efectiva con más del 95% de lectura, optimizando soporte, retención y ventas continuas."
-      },
-      "card4": {
-        "title": "Delegación de backend y seguridad",
-        "desc": "Elimina la deuda técnica y el riesgo legal. Camarai gestiona credenciales, cifrado y validaciones con total fiabilidad."
-      },
-      "card5": {
-        "title": "Validación sin contraseñas",
-        "desc": "Ahorra en soporte y mantenimiento. La autenticación sin contraseñas agiliza el acceso y reduce incidencias operativas."
-      },
-      "card6": {
-        "title": "Privacidad simplificada",
-        "desc": "Cumple fácilmente con GDPR y CCPA. Delegar la autenticación reduce exposición legal y simplifica la gestión de datos."
-      }
-    }
+    "missionLabel": "NUESTRA MISIÓN",
+    "title1": "EL ESTÁNDAR OPERATIVO DEL",
+    "title2": "SECTOR HORECA",
+    "paragraph1": "Nuestra misión es dotar a la hostelería de una infraestructura tecnológica integral y disruptiva. Controlamos el full-stack de la experiencia del cliente, para una operación sin fricciones. Remplazando sistemas obsoletos por una solución unificada.",
+    "paragraph2": "Nuestro valor se traduce en rendimiento económico medible para toda la industria. Esto significa: un incremento verificable en el Ticket Medio y una reducción estructural del coste laboral del sector."
   },
   "page02": {
     "title": "Transforma el acceso en una ventaja competitiva.",

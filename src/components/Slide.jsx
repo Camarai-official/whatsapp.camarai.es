@@ -6,7 +6,6 @@ export default function Slide({
   title,
   subtitle,
   primaryButton,
-  secondaryButton,
   layout,
   contentImg,
   cards = [],
@@ -14,32 +13,52 @@ export default function Slide({
   accentColor2,
   testimonial = null,
   onSlide,
+  missionLabel,
+  title1,
+  title2,
+  paragraph1,
+  paragraph2,
 }) {
 
   /** 🧩 Botones reutilizables (para footer y layout 1) */
-  const renderButtons = () => (
-    <div className="flex flex-wrap gap-4 mt-4 xl:justify-start justify-center">
-      {secondaryButton && (
-        <button
-          className="px-6 py-3 rounded-xl font-semibold outline outline-green-600 text-green-300 hover:bg-green-400/10 cursor-pointer"
-          onClick={() => onSlide?.(secondaryButton.goTo)}
-        >
-          {secondaryButton.text}
-        </button>
-      )}
-      {primaryButton && (
-        <button
-          className="px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2 cursor-pointer"
-          onClick={() => onSlide?.(primaryButton.goTo)}
-        >
-          {primaryButton.text}
-          {primaryButton.icon && (
-            <Icon icon={primaryButton.icon} className="w-5 h-5" />
-          )}
-        </button>
-      )}
-    </div>
-  );
+  const renderButtons = () => {
+    const primaryButtonClass = layout === 1
+      ? "px-16 py-3 rounded-2xl text-lg text-xl border-2 border-purple-400/80 hover:border-purple-300/90 cursor-pointer uppercase transition-all font-bold"
+      : "px-6 py-3 rounded-xl font-semibold bg-green-400 text-slate-900 hover:bg-green-300 flex items-center gap-2 cursor-pointer";
+
+    return (
+      <div className="flex flex-wrap gap-4 mt-4 justify-center">
+        {primaryButton && (
+          <button
+            className={primaryButtonClass}
+            style={layout === 1 ? {
+              backgroundColor: 'rgba(155, 110, 253, 0.2)',
+            } : {}}
+            onClick={() => onSlide?.(primaryButton.goTo)}
+          >
+            {layout === 1 ? (
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                background: 'linear-gradient(135deg, #a78bfa 0%, #f472b6 50%, #a78bfa 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                {primaryButton.text}
+              </span>
+            ) : (
+              <>
+                {primaryButton.text}
+                {primaryButton.icon && (
+                  <Icon icon={primaryButton.icon} className="w-5 h-5" />
+                )}
+              </>
+            )}
+          </button>
+        )}
+      </div>
+    );
+  };
 
   /** Card reutilizable (para layout 2 y 4) */
   const renderCard = (card, i) => (
@@ -96,18 +115,38 @@ export default function Slide({
       /** === LAYOUT 1: Texto + Imagen === */
       case 1:
         return (
-          <div className="grid grid-cols-1 xl:grid-cols-[3fr_2fr] gap-8 w-full h-full items-center justify-center">
-            <div className="flex flex-col gap-6">
-              {title && <h1 className="text-4xl xl:text-6xl font-bold text-slate-100">{title}</h1>}
-              {subtitle && <h6 className="text-pretty text-slate-400 text-xl">{subtitle}</h6>}
-              {renderButtons()}
-            </div>
-            {contentImg && renderGlowImage(contentImg)}
+          <div className="flex flex-col items-center justify-center w-full h-full gap-8">
+            {headerImg && (
+              <div className="relative flex items-center justify-center mb-2">
+                <div className="absolute inset-0 rounded-full blur-2xl opacity-60 pointer-events-none"></div>
+                <div className="relative">
+                  {typeof headerImg === 'string' && headerImg.includes(':') && !headerImg.includes('/') && !headerImg.startsWith('data:') && !headerImg.startsWith('blob:') ? (
+                    <Icon
+                      icon={headerImg}
+                      className="w-24 h-24"
+                      style={{
+                        color: '#a78bfa',
+                        filter: 'drop-shadow(0 0 12px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 6px rgba(244, 114, 182, 0.6))'
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={headerImg}
+                      alt="Header"
+                      className="w-32 h-32 object-contain"
+                    />
+                  )}
+                </div>
+              </div>
+            )}
+            {title && <h1 className="text-4xl xl:text-5xl font-black text-slate-100 text-center uppercase" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 900, lineHeight: '0.87' }}>{title}</h1>}
+            {subtitle && <h6 className="text-pretty text-white text-lg xl:text-xl text-center max-w-3xl leading-relaxed" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>{subtitle}</h6>}
+            {renderButtons()}
           </div>
         );
 
       /** === LAYOUT 2: GRID DE CARDS === */
-      case 2:
+      case 2: {
         const gridCols = "grid-cols-1 xl:grid-cols-3";
         return (
           <div className="flex flex-col items-center justify-center w-full h-full gap-10">
@@ -118,6 +157,7 @@ export default function Slide({
             )}
           </div>
         );
+      }
 
       /** === LAYOUT 3: TESTIMONIO === */
       case 3:
@@ -164,6 +204,98 @@ export default function Slide({
           </div>
         );
 
+      /** === LAYOUT 5: MISIÓN CON ROBOT === */
+      case 5:
+        return (
+          <div className="w-full h-full flex flex-col relative">
+            {/* Label "NUESTRA MISIÓN" - Arriba a la izquierda */}
+            {missionLabel && (
+              <div className="text-white uppercase mb-2 xl:mb-3" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 900, fontSize: '24px' }}>
+                {missionLabel}
+              </div>
+            )}
+
+            {/* Contenido principal: Texto a la derecha primero, Robot a la izquierda */}
+            <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-4 xl:gap-8 items-start flex-1 mt-2 xl:mt-3">
+              {/* Lado derecho: Párrafos - Primero en el orden (derecha) */}
+              <div className="flex flex-col gap-3 xl:gap-4 text-white pt-2 xl:pt-4 order-2 xl:order-2">
+                {paragraph1 && (
+                  <p className="leading-relaxed text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '22px' }}>
+                    {paragraph1}
+                  </p>
+                )}
+                {paragraph2 && (
+                  <p className="leading-relaxed text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '22px' }}>
+                    {paragraph2}
+                  </p>
+                )}
+              </div>
+
+              {/* Lado izquierdo: Título arriba, Robot abajo - Segundo en el orden (izquierda) */}
+              <div className="flex flex-col justify-between h-full order-1 xl:order-1 min-h-0">
+                {/* Título con gradiente y línea vertical */}
+                <div className="flex-1">
+                  {(title1 || title2) && (
+                    <div className="flex items-start gap-2 xl:gap-3">
+                      {/* Línea vertical blanca delgada */}
+                      <div className="w-px bg-white h-full min-h-[120px]"></div>
+                      <div className="flex flex-col gap-0.5 xl:gap-1">
+                        {title1 && (
+                          <h1
+                            className="font-black uppercase"
+                            style={{
+                              fontFamily: "'Inter', sans-serif",
+                              fontWeight: 900,
+                              fontSize: '50px',
+                              lineHeight: '1.05',
+                              background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              backgroundClip: 'text'
+                            }}
+                          >
+                            {title1}
+                          </h1>
+                        )}
+                        {title2 && (
+                          <h1
+                            className="font-black uppercase"
+                            style={{
+                              fontFamily: "'Inter', sans-serif",
+                              fontWeight: 900,
+                              fontSize: '50px',
+                              lineHeight: '1.05',
+                              background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              backgroundClip: 'text'
+                            }}
+                          >
+                            {title2}
+                          </h1>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Robot - Abajo a la izquierda */}
+                {contentImg && (
+                  <div className="mt-auto flex items-end justify-start">
+                    <div className="pt-3 xl:pt-4 pb-2 xl:pb-3">
+                      <img
+                        src={contentImg}
+                        alt="Robot"
+                        className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+
       default:
         return null;
     }
@@ -175,7 +307,7 @@ export default function Slide({
       className="
         relative w-full max-w-[1200px] xl:h-[87vh]
         px-4 xl:px-22 py-12 xl:py-8
-        rounded-4xl sm:border sm:border-slate-300/30 
+        rounded-4xl sm:border sm:border-slate-300/30
         bg-none sm:bg-slate-950/60 sm:backdrop-blur-xl
         flex flex-col items-center justify-center gap-6
       "

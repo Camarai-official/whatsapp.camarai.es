@@ -1,42 +1,19 @@
 {
   "home": {
-    "title1": "Camarai",
-    "title2": "reinvents Login",
-    "title3": "only with",
-    "title4": "WhatsApp",
-    "subtitle": "Leverage the world's most popular messaging app to deliver an instant, secure, and frictionless authentication experience.",
+    "title1": "THE DOMINANCE PLAN OF THE",
+    "title2": "HORECA SECTOR",
+    "title3": "",
+    "title4": "",
+    "subtitle": "We are the full-stack technological solution that transforms hospitality profitability. At Camarai, we eliminate operational friction and optimize human resource usage with applied artificial intelligence.",
     "primaryButton": "Get Started",
     "secondaryButton": "Learn More"
   },
   "page01": {
-    "title": "Why choose WhatsApp Login?",
-    "subtitle": "Camarai Login is designed to simplify every stage of user access.",
-    "cards": {
-      "card1": {
-        "title": "Access in seconds",
-        "desc": "Allow users to enter in seconds without passwords or codes. Authentication is instant, smooth and reliable."
-      },
-      "card2": {
-        "title": "10X qualified leads",
-        "desc": "Reduce CAC and improve LTV. A verified phone number guarantees real intent and prevents fake leads, spam and temporary accounts."
-      },
-      "card3": {
-        "title": "Instant contact channel",
-        "desc": "Enables direct and effective communication with over 95% read rate, optimizing support, retention and continuous sales."
-      },
-      "card4": {
-        "title": "Backend and security delegation",
-        "desc": "Eliminates technical debt and legal risk. Camarai manages credentials, encryption and validations with complete reliability."
-      },
-      "card5": {
-        "title": "Passwordless validation",
-        "desc": "Saves on support and maintenance. Passwordless authentication streamlines access and reduces operational incidents."
-      },
-      "card6": {
-        "title": "Simplified privacy",
-        "desc": "Easily comply with GDPR and CCPA. Delegating authentication reduces legal exposure and simplifies data management."
-      }
-    }
+    "missionLabel": "OUR MISSION",
+    "title1": "THE OPERATIONAL STANDARD OF THE",
+    "title2": "HORECA SECTOR",
+    "paragraph1": "Our mission is to provide hospitality with an integral and disruptive technological infrastructure. We control the full-stack of hardware and customer experience, for a frictionless operation. Replacing obsolete systems with a unified solution.",
+    "paragraph2": "Success is measured by the global economic impact generated. We guarantee a direct and verifiable increase in the average ticket and a structural reduction in labor costs."
   },
   "page02": {
     "title": "Transform access into a competitive advantage.",
