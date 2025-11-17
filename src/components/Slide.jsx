@@ -207,16 +207,16 @@ export default function Slide({
       /** === LAYOUT 5: MISIÓN CON ROBOT === */
       case 5:
         return (
-          <div className="w-full h-full flex flex-col justify-center items-end relative">
+          <div className="w-full h-full flex flex-col justify-center items-end relative px-4 xl:px-0">
             {/* Párrafos justificados a la derecha */}
-            <div className="flex flex-col gap-6 xl:gap-8 text-white max-w-2xl xl:max-w-3xl">
+            <div className="flex flex-col gap-4 xl:gap-6 2xl:gap-8 text-white w-full max-w-2xl xl:max-w-3xl">
               {paragraph1 && (
                 <p
                   className="leading-relaxed"
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 400,
-                    fontSize: '22px',
+                    fontSize: 'clamp(14px, 3vw, 22px)',
                     textAlign: 'right'
                   }}
                 >
@@ -229,7 +229,7 @@ export default function Slide({
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 400,
-                    fontSize: '22px',
+                    fontSize: 'clamp(14px, 3vw, 22px)',
                     textAlign: 'right'
                   }}
                 >
@@ -249,11 +249,12 @@ export default function Slide({
   return (
     <section
       className="
-        relative w-full max-w-[1200px] xl:h-[87vh]
-        px-4 xl:px-22 py-12 xl:py-8
+        relative w-full max-w-[1200px] min-h-screen xl:min-h-0 xl:h-[87vh]
+        px-4 xl:px-22 py-6 xl:py-8
         rounded-4xl sm:border sm:border-slate-300/30
         bg-none sm:bg-slate-950/60 sm:backdrop-blur-xl
-        flex flex-col items-center justify-center gap-6
+        flex flex-col items-center justify-center gap-4 xl:gap-6
+        overflow-x-hidden
       "
     >
       {/* HEADER (si layout !== 1) */}
@@ -282,7 +283,7 @@ export default function Slide({
       )}
 
       {/* CONTENIDO CENTRAL */}
-      <div className={`${layout === 5 ? 'w-4/6 h-1/2 ml-auto self-center overflow-y-auto pt-10' : 'w-full'} rounded-xl`}>{renderContent()}</div>
+      <div className={`${layout === 5 ? 'w-full xl:w-4/6 h-auto xl:h-1/2 ml-auto self-center overflow-y-auto pt-20 xl:pt-10 pb-4 xl:pb-0' : 'w-full'} rounded-xl`}>{renderContent()}</div>
 
       {/* Elementos del layout 5 fuera de renderContent */}
       {layout === 5 && (
@@ -290,11 +291,11 @@ export default function Slide({
           {/* Label "NUESTRA MISIÓN" - Arriba a la izquierda */}
           {missionLabel && (
             <div
-              className="absolute top-10 left-12 z-20 text-white uppercase"
+              className="absolute top-4 left-4 xl:top-10 xl:left-12 z-20 text-white uppercase"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 900,
-                fontSize: '24px'
+                fontSize: 'clamp(16px, 4vw, 24px)'
               }}
             >
               {missionLabel}
@@ -303,10 +304,10 @@ export default function Slide({
 
           {/* Título con gradiente y línea vertical - Hacia la izquierda */}
           {(title1 || title2) && (
-            <div className="absolute top-30 left-12 z-20 pt-2">
+            <div className="absolute top-16 xl:top-24 left-4 xl:left-12 z-20 pt-2 max-w-[90%] xl:max-w-none">
               <div className="flex items-start gap-2 xl:gap-3">
                 {/* Línea vertical ahora más gruesa y ancha */}
-                <div className="w-2 bg-[#9B6EFD] h-full min-h-[100px] xl:min-h-[120px] rounded-lg"></div>
+                <div className="w-1 xl:w-2 bg-[#9B6EFD] h-full min-h-[60px] xl:min-h-[120px] rounded-lg"></div>
                 <div className="flex flex-col gap-0.5 xl:gap-1">
                   {title1 && (
                     <h1
@@ -314,7 +315,7 @@ export default function Slide({
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontWeight: 900,
-                        fontSize: '50px',
+                        fontSize: 'clamp(20px, 5vw, 50px)',
                         lineHeight: '1.05',
                         background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
                         WebkitBackgroundClip: 'text',
@@ -331,7 +332,7 @@ export default function Slide({
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontWeight: 900,
-                        fontSize: '50px',
+                        fontSize: 'clamp(20px, 5vw, 50px)',
                         lineHeight: '1.05',
                         background: 'linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)',
                         WebkitBackgroundClip: 'text',
@@ -351,11 +352,11 @@ export default function Slide({
 
       {/* Robot - Solo para layout 5, fuera del contenedor renderContent */}
       {layout === 5 && contentImg && (
-        <div className="absolute bottom-0 left-0" style={{ left: 0, bottom: 0 }}>
+        <div className="absolute bottom-0 left-0 z-10">
           <img
             src={contentImg}
             alt="Robot"
-            className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl object-contain"
+            className="w-[25vw] sm:w-[20vw] h-auto xl:w-auto max-w-[25vw] sm:max-w-[20vw] xl:max-w-md 2xl:max-w-lg object-contain"
           />
         </div>
       )}
